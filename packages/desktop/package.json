@@ -1,0 +1,12 @@
+{
+  "name": "@learn/desktop",
+  "version": "0.0.1",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "build": "tsc",
+    "dev": "yarn run build && electron dist/main.js"
+  },
+  "devDependencies": {
+    "electron": "^26.1.0"
+  }
+}
