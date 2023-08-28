@@ -13,7 +13,8 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-dom": "^18.2.0",
+    "@learn/common": "^0.0.1"
   },
   "devDependencies": {
     "@storybook/addon-essentials": "^7.3.2",

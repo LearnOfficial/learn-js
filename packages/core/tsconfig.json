@@ -4,6 +4,10 @@
   ],
   "compilerOptions": {
     "rootDir": "src",
-    "outDir": "dist"
+    "outDir": "dist",
+    "baseUrl": "./",
+    "paths": {
+      "@learn/common/*": ["../common/dist/*"]
+    }
   }
 }

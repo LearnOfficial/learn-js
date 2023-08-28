@@ -1,0 +1,21 @@
+{
+  "name": "@learn/common",
+  "version": "0.0.1",
+  "type": "module",
+  "license": "GPL-3.0-or-later",
+  "scripts": {
+    "build": "tsc"
+  },
+  "types": "index.d.ts",
+  "exports": {
+    "./schemas": {
+      "import": "./dist/schemas/index.js",
+      "types": {
+        "required": "./dist/schemas/index.d.ts"
+      }
+    }
+  },
+  "devDependencies": {
+    "typescript": "^5.2.2"
+  }
+}

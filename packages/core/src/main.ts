@@ -1,11 +1,6 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from '@apollo/server/standalone';
-
-const typeDefs = `#graphql
-	type Query {
-		version: String
-	}	
-`
+import { typeDefs } from "@learn/common/schemas"
 
 const resolvers = {
 	Query: {
@@ -14,7 +9,7 @@ const resolvers = {
 };
 
 const server = new ApolloServer({
-	typeDefs,
+	typeDefs: typeDefs.toString,
 	resolvers
 });
 
