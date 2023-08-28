@@ -1,16 +1,11 @@
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from '@apollo/server/standalone';
 import { typeDefs } from "@learn/common/schemas"
-
-const resolvers = {
-	Query: {
-		version: () => "0.0.1"
-	}
-};
+import { resolvers } from "./resolvers";
 
 const server = new ApolloServer({
 	typeDefs: typeDefs.toString,
-	resolvers
+	resolvers: resolvers
 });
 
 const { url } = await startStandaloneServer(server, {

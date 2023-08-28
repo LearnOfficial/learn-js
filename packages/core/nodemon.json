@@ -1,6 +1,6 @@
 {
   "verbose": true,
   "watch": "./src",
-  "exec": "yarn run dev",
+  "exec": "yarn run dev:exec",
   "ext": "ts,gql"
 }
