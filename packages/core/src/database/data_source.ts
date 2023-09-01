@@ -1,5 +1,6 @@
 import { DataSource } from "typeorm";
 import { ENTITIES } from ".";
+import env from "@learn/common/env"
 import { DATABASE_ENV } from "@learn/common/env";
 
 console.log(DATABASE_ENV);

@@ -14,6 +14,6 @@ export const DATABASE_ENV: IDatabase_env = {
   host: process.env.DB_HOST || "localhost",
   port: parseInt(process.env.DB_PORT as string) || 3306,
   database: process.env.DB_DATABASE || "default",
-  username: process.env.USERNAME || "default",
-  password: process.env.PASSWORD || "default",
+  username: process.env.DB_USERNAME || "default",
+  password: process.env.DB_PASSWORD || "default",
 };
