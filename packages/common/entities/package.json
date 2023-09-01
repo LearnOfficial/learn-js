@@ -1,7 +1,7 @@
 {
   "name": "entities",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "./src/entities/index.ts",
   "type": "./src/entities/index.ts",
   "license": "MIT"
 }

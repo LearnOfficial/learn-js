@@ -13,6 +13,18 @@
       "types": {
         "required": "./dist/schemas/index.d.ts"
       }
+    },
+    "./entities": {
+      "import": "./dist/entities/index.js",
+      "types": {
+        "required": "./dist/entities/index.d.ts"
+      }
+    },
+    "./env": {
+      "import": "./dist/env/index.js",
+      "types": {
+        "required": "./dist/env/index.d.ts"
+      }
     }
   },
   "devDependencies": {

@@ -1,17 +1,16 @@
 import { DataSource } from "typeorm";
-import dotenv from "dotenv"
 import { ENTITIES } from ".";
+import { DATABASE_ENV } from "@learn/common/env";
 
-// NOTE: Read the env file from root project
-dotenv.config({path: "../../.env"})
+console.log(DATABASE_ENV);
 
 export const DatabaseDataSource = new DataSource({
 	type: "mysql",
-	host: process.env.DB_HOST,
-	port: parseInt(process.env.DB_PORT as string),
-	database: process.env.DB_DATABASE,
-	username: process.env.DB_USERNAME,
-	password: process.env.DB_PASSWORD,
+	host: DATABASE_ENV.host,
+	port: DATABASE_ENV.port,
+	database: DATABASE_ENV.database,
+	username: DATABASE_ENV.username,
+	password: DATABASE_ENV.password,
 	entities: ENTITIES,
 	synchronize: true,
 	logging: true
