@@ -19,6 +19,7 @@ export class Task implements ITask {
 
 	@Column()
 	description: string;
+
 	constructor(taskCreateInput?: ITaskCreateInput) {
 		if (taskCreateInput) {
 			Object.assign(this, taskCreateInput);

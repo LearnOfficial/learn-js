@@ -1,0 +1,14 @@
+type INote {
+  id: Int
+  idSubject: Int
+  title: String
+  description: String
+  body: String
+}
+
+input INoteCreateInput {
+  idSubject: Int!
+  title: String!
+  description: String!
+  body: String!
+}

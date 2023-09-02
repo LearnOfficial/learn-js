@@ -3,6 +3,7 @@ import { coreInfoResolver } from "./core_info";
 import { logIn, signUp } from "./user";
 import { createSubject } from "./subject"
 import { createTask } from "./task";
+import { createNote } from "./note";
 
 const resolvers: IQueryResolvers = {
 	Query: {
@@ -12,7 +13,8 @@ const resolvers: IQueryResolvers = {
 	Mutation: {
 		signUp: signUp,
 		createSubject: createSubject,
-		createTask: createTask
+		createTask: createTask,
+		createNote: createNote
 	}
 };
 
