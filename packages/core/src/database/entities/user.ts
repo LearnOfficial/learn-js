@@ -52,7 +52,17 @@ export class User implements IUser {
 		Object.assign(this, user);
 
 		if (!this?.id) {
-			await this.repository.save(this);
+			const newUser = await this.repository.save(this);
+			Object.assign(this, newUser)
+			return true;
+		}
+		return false;
+	}
+
+	async findByPk(id: number): Promise<boolean>{
+		const user: User | null = await this.repository.findOneBy({id});
+		if(user?.id){
+			Object.assign(this, user);
 			return true;
 		}
 		return false;

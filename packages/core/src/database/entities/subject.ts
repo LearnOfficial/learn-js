@@ -1,11 +1,14 @@
-import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, Relation } from "typeorm";
+import { Column, Entity, ManyToOne, OneToMany, PrimaryGeneratedColumn, Relation, Repository } from "typeorm";
 import { ISubject } from "@learn/common/entities/subject"
 import { User } from "./user";
 import { Note } from "./note";
 import { Task } from "./task";
+import { ISubjectCreateInput } from "@learn/common/schemas/subject";
+import { DatabaseDataSource } from "../data_source";
 
 @Entity()
 export class Subject implements ISubject {
+	private repository: Repository<Subject>;
 
 	@PrimaryGeneratedColumn()
 	id?: number | undefined;
@@ -24,4 +27,15 @@ export class Subject implements ISubject {
 
 	@Column()
 	description: string;
+	constructor(subjectCreateInput?: ISubjectCreateInput) {
+		if (subjectCreateInput) {
+			Object.assign(this, subjectCreateInput);
+		}
+		this.repository = DatabaseDataSource.getRepository(Subject);
+	}
+
+	async create(){
+		const subject = await this.repository.save(this);
+		Object.assign(this, subject)
+	}
 }

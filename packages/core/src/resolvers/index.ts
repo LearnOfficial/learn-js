@@ -1,6 +1,7 @@
 import { IQueryResolvers } from "@learn/common/schemas"
 import { coreInfoResolver } from "./core_info";
-import { logIn, signUp } from "./user/user_resolver";
+import { logIn, signUp } from "./user";
+import { createSubject } from "./subject"
 
 const resolvers: IQueryResolvers = {
 	Query: {
@@ -8,7 +9,8 @@ const resolvers: IQueryResolvers = {
 		logIn: logIn
 	},
 	Mutation: {
-		signUp: signUp
+		signUp: signUp,
+		createSubject: createSubject
 	}
 };
 

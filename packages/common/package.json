@@ -5,7 +5,7 @@
   "license": "GPL-3.0-or-later",
   "scripts": {
     "build:pre": "tsc",
-    "build:post": "yarn copyfiles -u 1 ./src/**/*.gql dist",
+    "build:post": "yarn copyfiles",
     "build": "yarn run build:pre && yarn run build:post"
   },
   "types": "index.d.ts",
