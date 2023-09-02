@@ -34,7 +34,12 @@ export class Subject implements ISubject {
 		this.repository = DatabaseDataSource.getRepository(Subject);
 	}
 
-	async create(){
+	async findByPk(id: number){
+		const subject: Subject | null = await this.repository.findOneBy({id});
+		Object.assign(this, subject);
+	}
+
+	async create() {
 		const subject = await this.repository.save(this);
 		Object.assign(this, subject)
 	}

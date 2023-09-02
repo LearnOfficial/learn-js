@@ -2,8 +2,6 @@ type ISubject {
   id: Int
   title: String
   description: String
-  created_at: String
-  updated_at: String
 }
 
 input ISubjectCreateInput {

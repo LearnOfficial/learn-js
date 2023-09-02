@@ -1,0 +1,12 @@
+type ITask {
+  id: Int
+  idSubject: Int
+  title: String
+  description: String 
+}
+
+input ITaskCreateInput { 
+  idSubject: Int!
+  title: String!
+  description: String!
+}
