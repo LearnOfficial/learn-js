@@ -34,6 +34,15 @@ export class User implements IUser {
 	}
 
 	async signUp(){
-		await this.repository.save(this);
+		// Sign up if the user don't registered previoulsy
+		const user = await this.repository.findOneBy({
+			username: this.username
+		});
+
+		Object.assign(this, user);
+
+		if(!this?.id){
+			await this.repository.save(this);
+		}
 	}
 }
