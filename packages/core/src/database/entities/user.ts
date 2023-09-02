@@ -1,7 +1,7 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn, Relation, Repository } from "typeorm";
 import { IUser } from "@learn/common/entities/user"
 import { Subject } from "./subject";
-import { IUserSignUpInput } from "@learn/common/schemas/user";
+import { IUserLogInInput, IUserSignUpInput } from "@learn/common/schemas/user";
 import { DatabaseDataSource } from "../data_source";
 
 @Entity()
@@ -20,20 +20,30 @@ export class User implements IUser {
 	@Column()
 	password?: string;
 
-	@Column({nullable: true})
+	@Column({ nullable: true })
 	photo: string;
 
 	@Column()
 	email: string;
 
-	constructor(userSignUpInput?: IUserSignUpInput){
-		if(userSignUpInput){
-			Object.assign(this,userSignUpInput);
+	constructor(userSignUpInput?: IUserSignUpInput) {
+		if (userSignUpInput) {
+			Object.assign(this, userSignUpInput);
 		}
 		this.repository = DatabaseDataSource.getRepository(User);
 	}
 
-	async signUp(){
+	async findByUsernameAndPassword(userLogInInput: IUserLogInInput): Promise<boolean>{
+		const user = await this.repository.findOneBy(userLogInInput);
+		Object.assign(this, user)
+		if(this?.id){
+			return true;
+		}
+
+		return false;
+	}
+
+	async signUp(): Promise<boolean>{
 		// Sign up if the user don't registered previoulsy
 		const user = await this.repository.findOneBy({
 			username: this.username
@@ -41,8 +51,10 @@ export class User implements IUser {
 
 		Object.assign(this, user);
 
-		if(!this?.id){
+		if (!this?.id) {
 			await this.repository.save(this);
+			return true;
 		}
+		return false;
 	}
 }

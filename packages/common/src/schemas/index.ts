@@ -3,7 +3,6 @@ import path from 'path'
 import { fileURLToPath } from 'url'
 import { ICoreInfo } from './coreInfo';
 import { IUserLogInInput, IUserSignUpInput, IUserToken } from './user';
-import { IUser } from 'src/entities/user';
 
 export interface ISchemas {
 	coreInfo: string;
@@ -13,7 +12,7 @@ export interface ISchemas {
 export interface IQueryResolvers {
 	Query: {
 		coreInfo: () => Promise<ICoreInfo>
-		logIn: (_: any, { userLogInInput }: { userLogInInput: IUserLogInInput }) => Promise<IUser>
+		logIn: (_: any, { userLogInInput }: { userLogInInput: IUserLogInInput }) => Promise<IUserToken>
 	},
 	Mutation: {
 		signUp: (_: any, { userSignUpInput }: { userSignUpInput: IUserSignUpInput }) => Promise<IUserToken>
@@ -39,7 +38,7 @@ export class TypeDefs {
 
 			type Query {
 				coreInfo: CoreInfo
-				logIn(userLogInInput: IUserLogInInput!): IUser
+				logIn(userLogInInput: IUserLogInInput!): IUserToken
 			}
 
 			type Mutation {
