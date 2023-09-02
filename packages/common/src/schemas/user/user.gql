@@ -1,0 +1,20 @@
+type IUser {
+  username: String
+  photo: String
+  email: String
+}
+
+input IUserLogInInput {
+  username: String
+  password: String
+}
+
+input IUserSignUpInput {
+  username: String
+  password: String
+  email: String
+}
+
+type IUserToken {
+  token: String
+}

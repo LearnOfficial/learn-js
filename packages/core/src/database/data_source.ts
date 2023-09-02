@@ -1,11 +1,8 @@
 import { DataSource } from "typeorm";
-import { ENTITIES } from ".";
-import env from "@learn/common/env"
 import { DATABASE_ENV } from "@learn/common/env";
+import { ENTITIES } from ".";
 
-console.log(DATABASE_ENV);
-
-export const DatabaseDataSource = new DataSource({
+const DatabaseDataSource = new DataSource({
 	type: "mysql",
 	host: DATABASE_ENV.host,
 	port: DATABASE_ENV.port,
@@ -16,3 +13,5 @@ export const DatabaseDataSource = new DataSource({
 	synchronize: true,
 	logging: true
 });
+
+export { DatabaseDataSource };

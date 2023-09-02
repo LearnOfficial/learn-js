@@ -17,3 +17,5 @@ export const DATABASE_ENV: IDatabase_env = {
   username: process.env.DB_USERNAME || "default",
   password: process.env.DB_PASSWORD || "default",
 };
+
+export const JWT_SECRET = process.env.JWT_SECRET || "secret";

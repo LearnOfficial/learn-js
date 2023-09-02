@@ -4,7 +4,9 @@
   "type": "module",
   "license": "GPL-3.0-or-later",
   "scripts": {
-    "build": "tsc"
+    "build:pre": "tsc",
+    "build:post": "yarn copyfiles -u 1 ./src/**/*.gql dist",
+    "build": "yarn run build:pre && yarn run build:post"
   },
   "types": "index.d.ts",
   "exports": {
@@ -29,5 +31,8 @@
   },
   "devDependencies": {
     "typescript": "^5.2.2"
+  },
+  "dependencies": {
+    "copyfiles": "^2.4.1"
   }
 }
