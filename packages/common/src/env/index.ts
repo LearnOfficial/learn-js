@@ -10,12 +10,24 @@ interface IDatabase_env {
   password: string;
 };
 
+interface IServer_env {
+  host: string;
+  port: number;
+}
+
+const env = process.env;
+
 export const DATABASE_ENV: IDatabase_env = {
-  host: process.env.DB_HOST || "localhost",
-  port: parseInt(process.env.DB_PORT as string) || 3306,
-  database: process.env.DB_DATABASE || "default",
-  username: process.env.DB_USERNAME || "default",
-  password: process.env.DB_PASSWORD || "default",
+  host: env.DB_HOST || "localhost",
+  port: parseInt(env.DB_PORT as string) || 3306,
+  database: env.DB_DATABASE || "default",
+  username: env.DB_USERNAME || "default",
+  password: env.DB_PASSWORD || "default",
 };
 
-export const JWT_SECRET = process.env.JWT_SECRET || "secret";
+export const JWT_SECRET = env.JWT_SECRET || "secret";
+
+export const SERVER_ENV: IServer_env = {
+  port: parseInt(env.SERVER_PORT as string) || 4000,
+  host: env.SERVER_HOST || "localhost"
+}
