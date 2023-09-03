@@ -1,3 +1,3 @@
 export interface ICoreInfo {
-	version: string;
+  version: string;
 }

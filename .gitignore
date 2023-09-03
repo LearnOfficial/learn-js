@@ -1,3 +1,5 @@
+# Ignore python env 
+.learn
 # Logs
 logs
 *.log

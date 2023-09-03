@@ -1,6 +1,6 @@
-import { IEntity } from "./entity";
+import { IEntity } from './entity';
 
 export interface ISubject extends IEntity {
-	title: string;
-	description: string;
+  title: string;
+  description: string;
 }

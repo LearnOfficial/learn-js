@@ -8,8 +8,8 @@ const meta = {
   component: Page,
   parameters: {
     // More on how to position stories at: https://storybook.js.org/docs/react/configure/story-layout
-    layout: 'fullscreen',
-  },
+    layout: 'fullscreen'
+  }
 } satisfies Meta<typeof Page>;
 
 export default meta;
@@ -22,8 +22,8 @@ export const LoggedIn: Story = {
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
     const loginButton = await canvas.getByRole('button', {
-      name: /Log in/i,
+      name: /Log in/i
     });
     await userEvent.click(loginButton);
-  },
+  }
 };

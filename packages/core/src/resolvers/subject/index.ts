@@ -1,27 +1,35 @@
-import { ISubject } from "@learn/common/entities/subject";
-import { ISubjectCreateInput } from "@learn/common/schemas/subject";
-import { Subject } from "../../database/entities/subject";
-import { IAuthContext } from "@learn/common/schemas";
-import { authGuard } from "../../auth";
-import { User } from "../../database/entities/user";
-import { IUser } from "@learn/common/entities/user";
+import { ISubject } from '@learn/common/entities/subject';
+import { ISubjectCreateInput } from '@learn/common/schemas/subject';
+import { Subject } from '../../database/entities/subject';
+import { IAuthContext } from '@learn/common/schemas';
+import { authGuard } from '../../auth';
+import { User } from '../../database/entities/user';
+import { IUser } from '@learn/common/entities/user';
 
-async function subjectsQuery(parent: IUser, { }: {}, _: IAuthContext): Promise<ISubject[]> {
-	const subjects = new Subject().findAllUserRelation(parent);
-	return subjects;
+async function subjectsQuery(
+  parent: IUser,
+  {}: {},
+  _: IAuthContext
+): Promise<ISubject[]> {
+  const subjects = new Subject().findAllUserRelation(parent);
+  return subjects;
 }
 
-async function createSubject(_: any, { subjectCreateInput }: { subjectCreateInput: ISubjectCreateInput }, authContext: IAuthContext): Promise<ISubject> {
-	await authGuard(authContext);
+async function createSubject(
+  _: any,
+  { subjectCreateInput }: { subjectCreateInput: ISubjectCreateInput },
+  authContext: IAuthContext
+): Promise<ISubject> {
+  await authGuard(authContext);
 
-	const user: User = new User();
-	await user.findByPk(authContext.id!);
-	
-	const subject: Subject = new Subject(subjectCreateInput);
-	subject.user = user;
+  const user: User = new User();
+  await user.findByPk(authContext.id!);
 
-	await subject.create();
-	return subject;
+  const subject: Subject = new Subject(subjectCreateInput);
+  subject.user = user;
+
+  await subject.create();
+  return subject;
 }
 
-export { createSubject , subjectsQuery };
+export { createSubject, subjectsQuery };
