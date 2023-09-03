@@ -9,6 +9,7 @@ import { ITaskCreateInput } from './task';
 import { ITask } from 'src/entities/task';
 import { INote } from 'src/entities/note';
 import { INoteCreateInput } from './note';
+import { IUser } from 'src/entities/user';
 
 export interface IAuthContext {
 	id?: number;
@@ -26,13 +27,21 @@ export interface ISchemas {
 export interface IQueryResolvers {
 	Query: {
 		coreInfo: () => Promise<ICoreInfo>
-		logIn: (_: any, { userLogInInput }: { userLogInInput: IUserLogInInput }, authContext: IAuthContext) => Promise<IUserToken>
+		logIn: (parent: any, { userLogInInput }: { userLogInInput: IUserLogInInput }, authContext: IAuthContext) => Promise<IUserToken>
+		user: (parent: any, {}:{}, authContext: IAuthContext) => Promise<IUser>
 	},
 	Mutation: {
-		signUp: (_: any, { userSignUpInput }: { userSignUpInput: IUserSignUpInput }, authContext: IAuthContext) => Promise<IUserToken>
-		createSubject: (_: any, { subjectCreateInput }: { subjectCreateInput: ISubjectCreateInput }, authContext: IAuthContext) => Promise<ISubject>
-		createTask: (_: any, { taskCreateInput }: { taskCreateInput: ITaskCreateInput }, authContext: IAuthContext) => Promise<ITask>
-		createNote: (_: any, { noteCreateInput }: { noteCreateInput: INoteCreateInput }, authContext: IAuthContext) => Promise<INote>
+		signUp: (parent: any, { userSignUpInput }: { userSignUpInput: IUserSignUpInput }, authContext: IAuthContext) => Promise<IUserToken>
+		createSubject: (parent: any, { subjectCreateInput }: { subjectCreateInput: ISubjectCreateInput }, authContext: IAuthContext) => Promise<ISubject>
+		createTask: (parent: any, { taskCreateInput }: { taskCreateInput: ITaskCreateInput }, authContext: IAuthContext) => Promise<ITask>
+		createNote: (parent: any, { noteCreateInput }: { noteCreateInput: INoteCreateInput }, authContext: IAuthContext) => Promise<INote>
+	},
+	IUser: {
+		subjects: (parent: IUser, {}:{}, authContext: IAuthContext) => Promise<ISubject[]>
+	},
+	ISubject: {
+		notes: (parent: ISubject, {}:{}, authContext: IAuthContext) => Promise<INote[]>
+		tasks: (parent: ISubject, {}:{}, authContext: IAuthContext) => Promise<ITask[]>
 	}
 }
 
@@ -62,6 +71,7 @@ export class TypeDefs {
 			type Query {
 				coreInfo: CoreInfo
 				logIn(userLogInInput: IUserLogInInput!): IUserToken
+				user: IUser
 			}
 
 			type Mutation {

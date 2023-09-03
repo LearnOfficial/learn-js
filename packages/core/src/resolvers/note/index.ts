@@ -4,6 +4,12 @@ import { IAuthContext } from "@learn/common/schemas";
 import { INoteCreateInput } from "@learn/common/schemas/note";
 import { Subject } from "../../database/entities/subject";
 import { Note } from "../../database/entities/note";
+import { ISubject } from "@learn/common/entities/subject";
+
+async function notesQuery(parent: ISubject, { }: {}, _: IAuthContext): Promise<INote[]> {
+	const notes = new Note().findAllSubjectRelation(parent);
+	return notes;
+}
 
 async function createNote(_: any, { noteCreateInput }: { noteCreateInput: INoteCreateInput }, authContext: IAuthContext): Promise<INote> {
 	await authGuard(authContext);
@@ -19,4 +25,4 @@ async function createNote(_: any, { noteCreateInput }: { noteCreateInput: INoteC
 	return note;
 }
 
-export { createNote };
+export { createNote , notesQuery};

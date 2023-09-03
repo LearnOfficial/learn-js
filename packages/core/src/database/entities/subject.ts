@@ -5,6 +5,7 @@ import { Note } from "./note";
 import { Task } from "./task";
 import { ISubjectCreateInput } from "@learn/common/schemas/subject";
 import { DatabaseDataSource } from "../data_source";
+import { IUser } from "@learn/common/entities/user";
 
 @Entity()
 export class Subject implements ISubject {
@@ -34,13 +35,24 @@ export class Subject implements ISubject {
 		this.repository = DatabaseDataSource.getRepository(Subject);
 	}
 
-	async findByPk(id: number){
-		const subject: Subject | null = await this.repository.findOneBy({id});
+	async findByPk(id: number) {
+		const subject: Subject | null = await this.repository.findOneBy({ id });
 		Object.assign(this, subject);
 	}
 
 	async create() {
 		const subject = await this.repository.save(this);
 		Object.assign(this, subject)
+	}
+
+	async findAllUserRelation(user: IUser): Promise<ISubject[]>{
+		return this.repository.find({
+			relations: ['user'],
+			where: {
+				user: {
+					id: user.id!
+				}
+			}
+		});
 	}
 }

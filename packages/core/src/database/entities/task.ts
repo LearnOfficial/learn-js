@@ -3,6 +3,7 @@ import { ITask } from "@learn/common/entities/task"
 import { Subject } from "./subject";
 import { ITaskCreateInput } from "@learn/common/schemas/task";
 import { DatabaseDataSource } from "../data_source";
+import { ISubject } from "@learn/common/entities/subject";
 
 @Entity()
 export class Task implements ITask {
@@ -31,4 +32,16 @@ export class Task implements ITask {
 		const task: Task = await this.repository.save(this);
 		Object.assign(this, task);
 	}
+
+	async findAllSubjectRelation(subject: ISubject): Promise<ITask[]>{
+		return this.repository.find({
+			relations: ['subject'],
+			where: {
+				subject: {
+					id: subject.id!
+				}
+			}
+		});
+	}
+
 }
