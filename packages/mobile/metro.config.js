@@ -20,7 +20,9 @@ const config = {
       if (
         moduleName.startsWith("react") ||
         moduleName.startsWith("@react-native") ||
-        moduleName.startsWith("@react-native-community")
+        moduleName.startsWith("@react-native-community") ||
+        moduleName.startsWith("@shopify/react-native-skia") ||
+        moduleName.startsWith("react-native-reanimated")
       ) {
         const pathToResolve = path.resolve(
           __dirname,

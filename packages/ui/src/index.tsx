@@ -1,4 +1,5 @@
-import { View, Image } from "react-native";
+import { View, Image} from "react-native";
+import { IMAGES } from "./assets";
 
 export function App() {
   return (
@@ -12,13 +13,11 @@ export function App() {
       <Image 
         style={{
           flex: 1,
-          width: 250,
-          height: 250
+          width: 200,
+          height: 200
         }}
         resizeMode="contain"
-        source={{
-        uri: "https://github.com/LearnOfficial/learn/blob/main/packages/ui/public/assets/LearnLogo.png?raw=true"
-      }}
+        source={IMAGES.logo}
       />
     </View>
   );

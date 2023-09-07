@@ -15,6 +15,7 @@ export default defineConfig({
   },
   optimizeDeps: {
     esbuildOptions: {
+      loader: { '.js': 'jsx' },
       mainFields: ["module", "main"],
       resolveExtensions: [".web.js", ".js", ".ts"]
     }

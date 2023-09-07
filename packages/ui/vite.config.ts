@@ -25,7 +25,8 @@ export default defineConfig({
         "react",
         "react/jsx-runtime",
         "react-dom",
-        "react-native"
+        "react-native",
+        "react-native-reanimated"
       ],
       output: {
         globals: {
@@ -36,6 +37,6 @@ export default defineConfig({
         },
       },
     },
-  },
+  }
 }) satisfies InlineConfig;
 
