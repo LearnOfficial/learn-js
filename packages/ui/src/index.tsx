@@ -1,4 +1,4 @@
-import { Image, View } from "react-native";
+import { View, Image } from "react-native";
 
 export function App() {
   return (
@@ -9,9 +9,16 @@ export function App() {
         alignItems: "center"
       }}
     >
-      <Image
-        resizeMode="center"
-        source={require("./assets/LearnLogo.png")}
+      <Image 
+        style={{
+          flex: 1,
+          width: 250,
+          height: 250
+        }}
+        resizeMode="contain"
+        source={{
+        uri: "https://github.com/LearnOfficial/learn/blob/main/packages/ui/public/assets/LearnLogo.png?raw=true"
+      }}
       />
     </View>
   );

@@ -26,12 +26,15 @@
     "@types/react": "^18.2.21",
     "@types/react-native": "^0.72.2",
     "@vitejs/plugin-react": "^4.0.4",
+    "@vitejs/plugin-react-swc": "^3.3.2",
     "typescript": "^5.2.2",
     "vite": "^4.4.9",
     "vite-plugin-dts": "^3.5.3"
   },
-  "peerDependencies": {
+  "dependencies": {
     "react": "^18.2.0",
-    "react-native": "^0.72.4"
+    "react-dom": "^18.2.0",
+    "react-native": "^0.72.4",
+    "react-native-web": "^0.19.8"
   }
 }

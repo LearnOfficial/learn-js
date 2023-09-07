@@ -1,5 +1,5 @@
 // vite.config.ts
-import react from "@vitejs/plugin-react";
+import react from "@vitejs/plugin-react-swc";
 import * as path from "node:path";
 import { defineConfig } from "vite";
 import dts from "vite-plugin-dts";
@@ -25,8 +25,7 @@ export default defineConfig({
         "react",
         "react/jsx-runtime",
         "react-dom",
-        "react-native",
-        "react/jsx-runtime",
+        "react-native"
       ],
       output: {
         globals: {
