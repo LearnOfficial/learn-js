@@ -1,12 +1,12 @@
-{ 
+{
   "name": "learn",
   "version": "0.0.1",
   "private": true,
   "license": "GPL-3.0-or-later",
-  "type": "module",
   "workspaces": {
     "packages": [
       "packages/*"
     ]
-  }
+  },
+  "packageManager": "yarn@3.6.3"
 }

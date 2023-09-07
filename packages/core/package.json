@@ -10,7 +10,7 @@
   },
   "dependencies": {
     "@apollo/server": "^4.9.2",
-    "@learn/common": "^0.0.1",
+    "@learn/common": "workspace:*",
     "graphql": "^16.8.0",
     "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.6.0",

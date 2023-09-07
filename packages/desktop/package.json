@@ -7,7 +7,7 @@
     "dev": "yarn run build && electron dist/main.js"
   },
   "dependencies": {
-    "@learn/common": "^0.0.1"
+    "@learn/common": "workspace:*"
   },
   "devDependencies": {
     "electron": "^26.1.0"

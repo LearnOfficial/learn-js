@@ -1,6 +1,6 @@
-import { Image, Platform, Text, View } from "react-native";
+import { Image, View } from "react-native";
 
-export default function App() {
+export function App() {
   return (
     <View
       style={{ 
