@@ -1,14 +1,7 @@
 import { Platform } from "react-native";
 
-function getImageUrl(path: string) {
-  //@ts-ignore
-  return new URL(path, import.meta.url).href
+const IMAGES = {
+  "logo": Platform.OS === "web" ? new URL(`assets/learn-logo.png`, import.meta.url).href : require('./assets/learn-logo.png')
 }
 
-function resolveImage(path: string) {
-  return Platform.OS === "web" ? getImageUrl(path) : require(path);
-}
-
-export const IMAGES = {
-  "logo": resolveImage('./assets/learn-logo.png')
-}
+export { IMAGES }
