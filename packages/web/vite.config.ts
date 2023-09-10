@@ -1,23 +1,23 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react()],
   define: {
-    global: "window"
+    global: 'window'
   },
   resolve: {
     alias: {
-      "react-native": "react-native-web"
+      'react-native': 'react-native-web'
     },
-    extensions: [".web.tsx", ".web.jsx", ".web.js", ".tsx", ".ts", ".js"],
+    extensions: ['.web.tsx', '.web.jsx', '.web.js', '.tsx', '.ts', '.js']
   },
   optimizeDeps: {
     esbuildOptions: {
       loader: { '.js': 'jsx' },
-      mainFields: ["module", "main"],
-      resolveExtensions: [".web.js", ".js", ".ts"]
+      mainFields: ['module', 'main'],
+      resolveExtensions: ['.web.js', '.js', '.ts']
     }
   },
   build: {
@@ -25,4 +25,4 @@ export default defineConfig({
       transformMixedEsModules: true
     }
   }
-})
+});

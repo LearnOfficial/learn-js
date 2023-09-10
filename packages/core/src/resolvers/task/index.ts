@@ -20,10 +20,10 @@ async function createTask(
   { taskCreateInput }: { taskCreateInput: ITaskCreateInput },
   authContext: IAuthContext
 ): Promise<ITask> {
-  try{
+  try {
     await authGuard(authContext);
-  }catch(e){
-    throw e; 
+  } catch (e) {
+    throw e;
   }
 
   const subject: Subject = new Subject();

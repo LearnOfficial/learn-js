@@ -20,7 +20,6 @@ async function createSubject(
   { subjectCreateInput }: { subjectCreateInput: ISubjectCreateInput },
   authContext: IAuthContext
 ): Promise<ISubject> {
-
   const user: User = new User();
   await user.findById(authContext.id!);
 

@@ -8,7 +8,7 @@ export async function authGuard(authContext: IAuthContext) {
   }
 
   const user = new User();
-  if(!await user.findById(authContext.id!)){
+  if (!(await user.findById(authContext.id!))) {
     throw new GraphQLError("The user isn't register.");
   }
 }

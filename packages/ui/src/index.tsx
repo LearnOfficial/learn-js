@@ -1,5 +1,2 @@
-import { LearnLogo } from "./components/LearnLogo";
-export {
-  LearnLogo
-};
-
+import { LearnLogo } from './components/LearnLogo';
+export { LearnLogo };

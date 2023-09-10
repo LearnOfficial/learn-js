@@ -1,22 +1,22 @@
-import { View, Image } from "react-native";
-import { IMAGES } from "../assets";
+import { View, Image } from 'react-native';
+import { IMAGES } from '../assets';
 
 export type LearnLogoProps = {
-  size: number
-}
+  size: number;
+};
 
-const aspectRatio = 920/433;
+const aspectRatio = 920 / 433;
 
-export function LearnLogo({size}: LearnLogoProps) {
+export function LearnLogo({ size }: LearnLogoProps) {
   const height = size / aspectRatio;
   return (
     <View
       style={{
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        justifyContent: 'center',
+        alignItems: 'center',
         maxWidth: size,
-        maxHeight: height,
+        maxHeight: height
       }}
     >
       <Image

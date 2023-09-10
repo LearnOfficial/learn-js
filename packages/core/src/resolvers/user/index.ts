@@ -16,9 +16,9 @@ async function userQuery(
   {}: {},
   authContext: IAuthContext
 ): Promise<IUser> {
-  try{
+  try {
     await authGuard(authContext);
-  }catch(e){
+  } catch (e) {
     throw e;
   }
 

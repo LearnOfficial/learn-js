@@ -20,9 +20,9 @@ async function createNote(
   { noteCreateInput }: { noteCreateInput: INoteCreateInput },
   authContext: IAuthContext
 ): Promise<INote> {
-  try{
+  try {
     await authGuard(authContext);
-  }catch(e){
+  } catch (e) {
     throw e;
   }
 
