@@ -3,12 +3,12 @@ type INote {
   idSubject: Int
   title: String
   description: String
-  body: String
+  path: String
 }
 
 input INoteCreateInput {
   idSubject: Int!
   title: String!
   description: String!
-  body: String!
+  path: String!
 }

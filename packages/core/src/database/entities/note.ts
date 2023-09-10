@@ -29,7 +29,7 @@ export class Note implements INote {
   description: string;
 
   @Column()
-  body: string;
+  path: string;
 
   constructor(noteCreateInput?: INoteCreateInput) {
     if (noteCreateInput) {
