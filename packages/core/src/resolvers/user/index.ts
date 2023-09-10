@@ -16,9 +16,14 @@ async function userQuery(
   {}: {},
   authContext: IAuthContext
 ): Promise<IUser> {
-  authGuard(authContext);
+  try{
+    await authGuard(authContext);
+  }catch(e){
+    throw e;
+  }
+
   const user = new User();
-  await user.findByPk(authContext.id!);
+  await user.findById(authContext.id!);
   return user;
 }
 

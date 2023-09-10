@@ -20,7 +20,11 @@ async function createNote(
   { noteCreateInput }: { noteCreateInput: INoteCreateInput },
   authContext: IAuthContext
 ): Promise<INote> {
-  await authGuard(authContext);
+  try{
+    await authGuard(authContext);
+  }catch(e){
+    throw e;
+  }
 
   const subject: Subject = new Subject();
   await subject.findByPk(noteCreateInput.idSubject);

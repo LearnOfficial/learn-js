@@ -68,7 +68,7 @@ export class User implements IUser {
     return false;
   }
 
-  async findByPk(id: number): Promise<boolean> {
+  async findById(id: number): Promise<boolean> {
     const user: User | null = await this.repository.findOneBy({ id });
     if (user?.id) {
       Object.assign(this, user);

@@ -20,7 +20,11 @@ async function createTask(
   { taskCreateInput }: { taskCreateInput: ITaskCreateInput },
   authContext: IAuthContext
 ): Promise<ITask> {
-  await authGuard(authContext);
+  try{
+    await authGuard(authContext);
+  }catch(e){
+    throw e; 
+  }
 
   const subject: Subject = new Subject();
   await subject.findByPk(taskCreateInput.idSubject);
