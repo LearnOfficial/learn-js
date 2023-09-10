@@ -1,4 +1,4 @@
-import { View, Image } from 'react-native';
+import { View, Image, Platform } from 'react-native';
 import { IMAGES } from '../assets';
 
 export type LearnLogoProps = {

@@ -1,8 +1,4 @@
 {
-  "extends": ["../../tsconfig.json"],
-  "compilerOptions": {
-    "module": "commonjs",
-    "rootDir": "src",
-    "outDir": "dist"
-  }
+  "files": [],
+  "references": [{ "path": "./tsconfig.node.json" }, { "path": "./tsconfig.web.json" }]
 }
