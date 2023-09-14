@@ -3,11 +3,12 @@ import { IMAGES } from '../assets';
 
 export type LearnLogoProps = {
   size: number;
+  image: keyof typeof IMAGES;
 };
 
 const aspectRatio = 920 / 433;
 
-export default function LearnLogo({ size }: LearnLogoProps) {
+export default function StaticImage({ size, image }: LearnLogoProps) {
   const height = size / aspectRatio;
   return (
     <View
@@ -22,7 +23,7 @@ export default function LearnLogo({ size }: LearnLogoProps) {
           height: height
         }}
         resizeMode="contain"
-        source={IMAGES.logo}
+        source={IMAGES[image]}
       />
     </View>
   );
