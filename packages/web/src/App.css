@@ -1,6 +1,6 @@
 @font-face {
   font-family: lexend;
-  src: url('./assets/fonts/lexend/lexend-variale-wght.ttf');
+  src: url('/assets/fonts/lexend/lexend-variale-wght.ttf');
 }
 
 #root {
