@@ -1,0 +1,13 @@
+@font-face {
+  font-family: lexend;
+  src: url('/assets/fonts/lexend/lexend-variale-wght.ttf');
+}
+
+#root {
+  background: linear-gradient(
+    174deg,
+    rgba(251, 252, 247, 0.72) 50%,
+    #f9fbf4 20%,
+    rgba(255, 255, 255, 0) 100%
+  );
+}

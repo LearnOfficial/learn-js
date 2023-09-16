@@ -6,7 +6,7 @@
   "scripts": {
     "build": "tsc"
   },
-  "types": "index.d.ts",
+  "types": "./dist/index.d.ts",
   "exports": {
     "./schemas": {
       "import": "./dist/schemas/index.js",
@@ -27,6 +27,9 @@
       }
     }
   },
+  "files": [
+    "./dist"
+  ],
   "devDependencies": {
     "@types/node": "^20.6.0",
     "typescript": "^5.2.2"
