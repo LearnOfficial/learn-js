@@ -1,16 +1,10 @@
-import { StaticImage } from '@learn/ui';
-import { View } from 'react-native';
+import { AuthProvider } from './hooks/auth';
+import { AppRouter } from './AppRouter';
 
 export function App() {
   return (
-    <View
-      style={{
-        flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}
-    >
-      <StaticImage size={150} image="LearnLogo" />
-    </View>
+    <AuthProvider>
+      <AppRouter />
+    </AuthProvider>
   );
 }
