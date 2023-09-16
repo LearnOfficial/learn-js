@@ -1,5 +1,5 @@
-import {Text, View} from 'react-native';
-import {Button, LearnLogo} from '@learn/ui';
+import {View} from 'react-native';
+import {Button, StaticImage} from '@learn/ui';
 
 export function App() {
   return (
@@ -9,7 +9,7 @@ export function App() {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <LearnLogo size={200} />
+      <StaticImage size={200} image="LearnLogo" />
       <Button title="Hello world" />
     </View>
   );
