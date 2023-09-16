@@ -8,6 +8,9 @@
     "strict": true,
     "outDir": "dist",
     "noEmit": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "paths": {
+      "@learn/common/*": ["../common/dist/*"]
+    }
   }
 }

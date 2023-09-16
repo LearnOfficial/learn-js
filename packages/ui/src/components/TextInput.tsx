@@ -3,20 +3,14 @@ import { TextInput as RNTextInput } from 'react-native';
 
 export type TextInputProps = {
   placeholder: string;
-  inputText: string;
-  setInputText: React.Dispatch<React.SetStateAction<string>>;
+  inputRef: React.MutableRefObject<string>;
 };
 
-export default function TextInput({
-  placeholder,
-  inputText,
-  setInputText
-}: TextInputProps) {
+export default function TextInput({ placeholder, inputRef }: TextInputProps) {
   const [onFocus, setOnFocus] = useState<boolean>(false);
 
   return (
     <RNTextInput
-      value={inputText}
       onFocus={() => {
         setOnFocus(true);
       }}
@@ -30,7 +24,7 @@ export default function TextInput({
         color: onFocus ? 'black' : 'grey',
         width: '100%'
       }}
-      onChangeText={setInputText}
+      onChangeText={(input) => (inputRef.current = input)}
       placeholder={placeholder}
     />
   );

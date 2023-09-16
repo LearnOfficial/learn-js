@@ -3,20 +3,17 @@ import { TextInput as TextInputRN } from 'react-native';
 
 export type SecureTextInputProps = {
   placeholder: string;
-  inputText: string;
-  setInputText: React.Dispatch<React.SetStateAction<string>>;
+  inputRef: React.MutableRefObject<string>;
 };
 
 export default function SecureTextInput({
   placeholder,
-  inputText,
-  setInputText
+  inputRef
 }: SecureTextInputProps) {
   const [onFocus, setOnFocus] = useState<boolean>(false);
 
   return (
     <TextInputRN
-      value={inputText}
       onFocus={() => {
         setOnFocus(true);
       }}
@@ -30,7 +27,7 @@ export default function SecureTextInput({
         color: onFocus ? 'black' : 'grey',
         width: '100%'
       }}
-      onChangeText={setInputText}
+      onChangeText={(input) => (inputRef.current = input)}
       placeholder={placeholder}
       secureTextEntry
     />
