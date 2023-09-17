@@ -1,18 +1,22 @@
-import { Text, TouchableOpacity } from 'react-native';
+import { Pressable, StyleProp, Text, ViewStyle } from 'react-native';
 
 export type ButtonProps = {
   title: string;
   onPress?: () => void;
+  style?: StyleProp<ViewStyle>;
 };
-export default function Button({ title, onPress }: ButtonProps) {
+export default function Button({ title, onPress, style }: ButtonProps) {
   return (
-    <TouchableOpacity
+    <Pressable
       onPress={onPress}
-      style={{
-        width: '100%',
-        backgroundColor: 'black',
-        padding: 10
-      }}
+      style={[
+        {
+          width: '100%',
+          backgroundColor: 'black',
+          padding: 10
+        },
+        style
+      ]}
     >
       <Text
         style={{
@@ -23,6 +27,6 @@ export default function Button({ title, onPress }: ButtonProps) {
       >
         {title}
       </Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 }

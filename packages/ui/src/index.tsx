@@ -5,6 +5,7 @@ import Button from './components/Button';
 import ApolloClient from './components/ApolloClient';
 import { parseLogInOptions, LOGIN_QUERY } from './queries/parseLogIn';
 import { AuthProvider, useAuth } from './hooks/auth';
+import { SIGN_UP_MUTATION, parseSignUpOptions } from './mutations/parseSignUp';
 export {
   StaticImage,
   TextInput,
@@ -14,5 +15,7 @@ export {
   parseLogInOptions,
   LOGIN_QUERY,
   AuthProvider,
-  useAuth
+  useAuth,
+  SIGN_UP_MUTATION,
+  parseSignUpOptions
 };

@@ -1,5 +1,14 @@
-import { Button, StaticImage, TextInput, useAuth } from '@learn/ui';
-import { useRef } from 'react';
+import { useLazyQuery } from '@apollo/client';
+import {
+  Button,
+  LOGIN_QUERY,
+  SecureTextInput,
+  StaticImage,
+  TextInput,
+  parseLogInOptions,
+  useAuth
+} from '@learn/ui';
+import { useEffect, useRef } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import { Link } from 'react-router-dom';
 
@@ -8,12 +17,22 @@ export function LogIn() {
   const username = useRef<string>('');
   const password = useRef<string>('');
 
+  const [loadLogIn, { loading, called, data, error }] =
+    useLazyQuery(LOGIN_QUERY);
+
+  useEffect(() => {
+    if (data) {
+      logIn(data?.logIn?.token);
+    }
+  }, [data]);
+
   return (
     <ScrollView
       contentContainerStyle={{
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center'
+        alignItems: 'center',
+        padding: 20
       }}
     >
       <View
@@ -47,7 +66,7 @@ export function LogIn() {
               placeholder="Username"
               inputRef={username}
             />
-            <TextInput
+            <SecureTextInput
               style={{ fontFamily: 'lexend' }}
               placeholder="Password"
               inputRef={password}
@@ -55,7 +74,12 @@ export function LogIn() {
             <Button
               title="Log In"
               onPress={() => {
-                logIn();
+                loadLogIn(
+                  parseLogInOptions({
+                    username: username.current,
+                    password: password.current
+                  })
+                );
               }}
             />
             <Text style={{ color: '#70687E', fontFamily: 'lexend' }}>

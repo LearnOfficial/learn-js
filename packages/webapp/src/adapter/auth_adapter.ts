@@ -1,11 +1,20 @@
 export const authProviderAdapter = {
-  async logIn(setToken) {
-    setToken('token');
+  async logIn(
+    token: string,
+    setToken: React.Dispatch<React.SetStateAction<string>>
+  ) {
+    setToken(token);
   },
-  async logOut(setToken) {
+  async logOut(
+    _: string,
+    setToken: React.Dispatch<React.SetStateAction<string>>
+  ) {
     setToken('');
   },
-  async signUp(setToken) {
-    setToken('token');
+  async signUp(
+    token: string,
+    setToken: React.Dispatch<React.SetStateAction<string>>
+  ) {
+    setToken(token);
   }
 };

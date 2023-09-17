@@ -3,16 +3,16 @@ import { ReactNode, createContext, useContext, useMemo, useState } from 'react';
 export type ICommonAuthParameter = React.Dispatch<React.SetStateAction<string>>;
 
 export type IAuthProviderAdapter = {
-  logIn: (setToken: ICommonAuthParameter) => Promise<void>;
-  logOut: (setToken: ICommonAuthParameter) => Promise<void>;
-  signUp: (setToken: ICommonAuthParameter) => Promise<void>;
+  logIn: (token: string, setToken: ICommonAuthParameter) => Promise<void>;
+  logOut: (token: string, setToken: ICommonAuthParameter) => Promise<void>;
+  signUp: (token: string, setToken: ICommonAuthParameter) => Promise<void>;
 };
 
 export type IAuthProviderContextProps = {
   token: string;
-  logIn: () => Promise<void>;
-  logOut: () => Promise<void>;
-  signUp: () => Promise<void>;
+  logIn: (token: string) => Promise<void>;
+  logOut: (token: string) => Promise<void>;
+  signUp: (token: string) => Promise<void>;
 };
 
 export type IAuthProviderProps = {
@@ -28,22 +28,22 @@ const AuthContext = createContext<IAuthProviderContextProps>({
 });
 
 export function AuthProvider({ children, adapter }: IAuthProviderProps) {
-  const [token, setToken] = useState<string>('');
+  const [secureToken, setToken] = useState<string>('');
 
   const value = useMemo(() => {
-    const logIn = async () => {
-      await adapter.logIn(setToken);
+    const logIn = async (token: string) => {
+      await adapter.logIn(token, setToken);
     };
 
-    const logOut = async () => {
-      await adapter.logOut(setToken);
+    const logOut = async (token: string) => {
+      await adapter.logOut(token, setToken);
     };
 
-    const signUp = async () => {
-      await adapter.signUp(setToken);
+    const signUp = async (token: string) => {
+      await adapter.signUp(token, setToken);
     };
-    return { token, logIn, logOut, signUp };
-  }, [token]);
+    return { token: secureToken, logIn, logOut, signUp };
+  }, [secureToken]);
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }

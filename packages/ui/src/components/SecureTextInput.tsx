@@ -1,14 +1,16 @@
 import { useState } from 'react';
-import { TextInput as TextInputRN } from 'react-native';
+import { StyleProp, TextInput as TextInputRN, TextStyle } from 'react-native';
 
 export type SecureTextInputProps = {
   placeholder: string;
   inputRef: React.MutableRefObject<string>;
+  style?: StyleProp<TextStyle>;
 };
 
 export default function SecureTextInput({
   placeholder,
-  inputRef
+  inputRef,
+  style
 }: SecureTextInputProps) {
   const [onFocus, setOnFocus] = useState<boolean>(false);
 
@@ -20,13 +22,16 @@ export default function SecureTextInput({
       onBlur={() => {
         setOnFocus(false);
       }}
-      style={{
-        padding: 10,
-        borderWidth: onFocus ? 1 : 2,
-        borderColor: onFocus ? 'black' : 'grey',
-        color: onFocus ? 'black' : 'grey',
-        width: '100%'
-      }}
+      style={[
+        {
+          padding: 10,
+          borderWidth: onFocus ? 1 : 2,
+          borderColor: onFocus ? 'black' : 'grey',
+          color: onFocus ? 'black' : 'grey',
+          width: '100%'
+        },
+        style
+      ]}
       onChangeText={(input) => (inputRef.current = input)}
       placeholder={placeholder}
       secureTextEntry

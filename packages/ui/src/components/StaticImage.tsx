@@ -1,21 +1,25 @@
-import { View, Image } from 'react-native';
+import { View, Image, StyleProp, ViewStyle } from 'react-native';
 import { IMAGES } from '../assets';
 
 export type LearnLogoProps = {
   size: number;
   image: keyof typeof IMAGES;
+  style?: StyleProp<ViewStyle>;
 };
 
 const aspectRatio = 920 / 433;
 
-export default function StaticImage({ size, image }: LearnLogoProps) {
+export default function StaticImage({ size, image, style }: LearnLogoProps) {
   const height = size / aspectRatio;
   return (
     <View
-      style={{
-        maxWidth: size,
-        maxHeight: height
-      }}
+      style={[
+        {
+          maxWidth: size,
+          maxHeight: height
+        },
+        style
+      ]}
     >
       <Image
         style={{
