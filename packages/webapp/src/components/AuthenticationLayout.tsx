@@ -1,5 +1,5 @@
+import { useAuth } from '@learn/ui';
 import { Navigate, useOutlet } from 'react-router-dom';
-import { useAuth } from '../hooks/auth';
 
 export function AuthenticationLayout() {
   const outlet = useOutlet();

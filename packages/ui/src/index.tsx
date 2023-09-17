@@ -4,6 +4,7 @@ import SecureTextInput from './components/SecureTextInput';
 import Button from './components/Button';
 import ApolloClient from './components/ApolloClient';
 import { parseLogInOptions, LOGIN_QUERY } from './queries/parseLogIn';
+import { AuthProvider, useAuth } from './hooks/auth';
 export {
   StaticImage,
   TextInput,
@@ -11,5 +12,7 @@ export {
   Button,
   ApolloClient,
   parseLogInOptions,
-  LOGIN_QUERY
+  LOGIN_QUERY,
+  AuthProvider,
+  useAuth
 };
