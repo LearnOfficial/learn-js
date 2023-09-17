@@ -11,7 +11,7 @@ export type IAuthProviderAdapter = {
 export type IAuthProviderContextProps = {
   token: string;
   logIn: (token: string) => Promise<void>;
-  logOut: (token: string) => Promise<void>;
+  logOut: () => Promise<void>;
   signUp: (token: string) => Promise<void>;
 };
 
