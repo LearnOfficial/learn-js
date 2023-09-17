@@ -18,6 +18,7 @@ export type IAuthProviderContextProps = {
 export type IAuthProviderProps = {
   children: ReactNode;
   adapter: IAuthProviderAdapter;
+  token?: string;
 };
 
 const AuthContext = createContext<IAuthProviderContextProps>({
@@ -27,8 +28,8 @@ const AuthContext = createContext<IAuthProviderContextProps>({
   signUp: async () => {}
 });
 
-export function AuthProvider({ children, adapter }: IAuthProviderProps) {
-  const [secureToken, setToken] = useState<string>('');
+export function AuthProvider({ children, adapter, token }: IAuthProviderProps) {
+  const [secureToken, setToken] = useState<string>(token ?? '');
 
   const value = useMemo(() => {
     const logIn = async (token: string) => {

@@ -9,10 +9,11 @@ import { NoteBoard } from './pages/NoteBoard';
 import { SignUp } from './pages/SignUp';
 import { LogIn } from './pages/LogIn';
 import { AuthenticationLayout } from './components/AuthenticationLayout';
+import { InitializationLayout } from './components/InitializationLayout';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <>
+    <Route element={<InitializationLayout />}>
       <Route element={<AuthLayout />}>
         <Route path="/" element={<NoteBoard />}></Route>
       </Route>
@@ -21,7 +22,7 @@ const router = createBrowserRouter(
         <Route path="/login" element={<LogIn />}></Route>
         <Route path="/signup" element={<SignUp />}></Route>
       </Route>
-    </>
+    </Route>
   )
 );
 
