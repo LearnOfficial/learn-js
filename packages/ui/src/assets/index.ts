@@ -1,18 +1,35 @@
 import { Platform } from 'react-native';
-
 const IMAGES = {
   LearnLogo:
     Platform.OS === 'web'
-      ? new URL(`assets/learn-logo.png`, import.meta.url).href
-      : require('./assets/learn-logo.png'),
+      ? //@ts-ignore
+        new URL(`assets/imgs/learn-logo.png`, import.meta.url).href
+      : require('./assets/imgs/learn-logo.png'),
   GitHubIcon:
     Platform.OS === 'web'
-      ? new URL(`assets/github-icon.png`, import.meta.url).href
-      : require('./assets/github-icon.png'),
+      ? //@ts-ignore
+        new URL(`assets/imgs/github-icon.png`, import.meta.url).href
+      : require('./assets/imgs/github-icon.png'),
   LearnDesktopApp:
     Platform.OS === 'web'
-      ? new URL(`assets/learn-desktop-app.png`, import.meta.url).href
-      : require('./assets/learn-desktop-app.png')
+      ? //@ts-ignore
+        new URL(`assets/imgs/learn-desktop-app.png`, import.meta.url).href
+      : require('./assets/imgs/learn-desktop-app.png'),
+  FemaleProfileImage:
+    Platform.OS === 'web'
+      ? //@ts-ignore
+        new URL(`assets/imgs/female-profile-image.png`, import.meta.url).href
+      : require('./assets/imgs/female-profile-image.png'),
+  HouseIcon:
+    Platform.OS === 'web'
+      ? //@ts-ignore
+        new URL(`assets/imgs/house-icon.png`, import.meta.url).href
+      : require('./assets/imgs/house-icon.png'),
+  AddIcon:
+    Platform.OS === 'web'
+      ? //@ts-ignore
+        new URL(`assets/imgs/add-icon.png`, import.meta.url).href
+      : require('./assets/imgs/add-icon.png')
 };
 
 export { IMAGES };
