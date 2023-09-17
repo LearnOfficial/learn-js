@@ -17,7 +17,7 @@ const AuthContext = createContext<AuthProviderContextProps>({
 });
 
 export function AuthProvider({ children }: AuthProviderProps) {
-  const [token, setToken] = useState<string>('token');
+  const [token, setToken] = useState<string>('');
 
   const logIn = () => {
     setToken('token');
