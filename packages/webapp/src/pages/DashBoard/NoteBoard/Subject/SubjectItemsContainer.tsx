@@ -14,6 +14,7 @@ export function SubjectItemsContainer({
   data
 }: SubjectItemsContainerProps) {
   const sliderRef = useRef<Slider>(null);
+  const sliderCurrentIndexRef = useRef<number>(0);
 
   return (
     <>
@@ -37,10 +38,12 @@ export function SubjectItemsContainer({
         <Slider
           ref={sliderRef}
           data={data}
-          renderItem={({ item }) => (
+          renderItem={({ item, index }) => (
             <SubjectItem
               title={item.title}
               backgroundColor={item.backgroundColor}
+              index={index}
+              sliderRef={sliderRef}
             />
           )}
         />

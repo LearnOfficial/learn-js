@@ -1,13 +1,21 @@
 import { TextInput } from '@learn/ui';
-import { useRef, useState } from 'react';
+import { MutableRefObject, RefObject, useRef, useState } from 'react';
 import { ColorValue, Pressable, Text, View } from 'react-native';
+import { Slider } from '../../components/slider';
 
 export type SubjectItemProps = {
   title: string;
   backgroundColor: ColorValue;
+  sliderRef: RefObject<Slider>;
+  index: number;
 };
 
-export function SubjectItem({ title, backgroundColor }: SubjectItemProps) {
+export function SubjectItem({
+  index,
+  title,
+  backgroundColor,
+  sliderRef
+}: SubjectItemProps) {
   const doublePressed = useRef<number>(0);
   const [editable, setEditable] = useState<boolean>(false);
   const inputRef = useRef<string>(title);
@@ -21,6 +29,7 @@ export function SubjectItem({ title, backgroundColor }: SubjectItemProps) {
         borderRadius: 100
       }}
       onPress={() => {
+        sliderRef.current?.toItemIndex(index);
         setTimeout(() => {
           doublePressed.current = 0;
         }, 500);

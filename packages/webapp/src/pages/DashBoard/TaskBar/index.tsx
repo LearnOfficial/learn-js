@@ -1,5 +1,6 @@
-import { Text, View } from 'react-native';
+import { Pressable, Text, View } from 'react-native';
 import { Slider } from '../components/slider';
+import { useRef } from 'react';
 
 function getDaysInMonth(month: number, year: number) {
   var date = new Date(year, month, 1);
@@ -13,6 +14,7 @@ function getDaysInMonth(month: number, year: number) {
 
 export function TaskBar() {
   const augustDays = getDaysInMonth(7, 2023);
+  const sliderRef = useRef<Slider>(null);
 
   return (
     <>
@@ -24,35 +26,42 @@ export function TaskBar() {
 
       <View>
         <Slider
+          ref={sliderRef}
           data={augustDays}
-          renderItem={({ item }: { item: Date }) => {
+          renderItem={({ item, index }: { item: Date; index: number }) => {
             return (
-              <View
-                style={{
-                  width: 50,
-                  height: 50,
-                  borderRadius: 10,
-                  backgroundColor: '#EEEEE3',
-                  padding: 20,
-                  justifyContent: 'center',
-                  alignItems: 'center'
+              <Pressable
+                onPress={() => {
+                  sliderRef.current?.toItemIndex(index);
                 }}
               >
-                <Text
+                <View
                   style={{
-                    fontFamily: 'lexend',
-                    color: 'black',
-                    fontWeight: '800'
+                    width: 50,
+                    height: 50,
+                    borderRadius: 10,
+                    backgroundColor: '#EEEEE3',
+                    padding: 20,
+                    justifyContent: 'center',
+                    alignItems: 'center'
                   }}
                 >
-                  {item
-                    .toLocaleDateString('en-US', { weekday: 'long' })
-                    .slice(0, 3)}
-                </Text>
-                <Text style={{ fontFamily: 'lexend', color: 'black' }}>
-                  {item.getDate()}
-                </Text>
-              </View>
+                  <Text
+                    style={{
+                      fontFamily: 'lexend',
+                      color: 'black',
+                      fontWeight: '800'
+                    }}
+                  >
+                    {item
+                      .toLocaleDateString('en-US', { weekday: 'long' })
+                      .slice(0, 3)}
+                  </Text>
+                  <Text style={{ fontFamily: 'lexend', color: 'black' }}>
+                    {item.getDate()}
+                  </Text>
+                </View>
+              </Pressable>
             );
           }}
         />

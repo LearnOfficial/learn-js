@@ -5,7 +5,7 @@ import {
   useImperativeHandle,
   useRef
 } from 'react';
-import { FlatList, ListRenderItem, ViewToken } from 'react-native';
+import { FlatList, ListRenderItem, Pressable, ViewToken } from 'react-native';
 
 export type IOnViewableItemsChangeParams = {
   viewableItems: ViewToken[];
@@ -17,6 +17,7 @@ export type Slider = {
   toBeforeItem: () => void;
   toLastItem: () => void;
   toFirstItem: () => void;
+  toItemIndex: (index: number) => void;
 };
 export type SliderProps = {
   data: ArrayLike<any>;
@@ -34,7 +35,6 @@ export const Slider = forwardRef<Slider, SliderProps>((props, ref) => {
     (info: IOnViewableItemsChangeParams) => void
   >(({ viewableItems }: IOnViewableItemsChangeParams) => {
     viewableItemsRef.current = viewableItems;
-    console.log(viewableItems);
   });
 
   useEffect(() => {
@@ -76,21 +76,33 @@ export const Slider = forwardRef<Slider, SliderProps>((props, ref) => {
     });
   }, [props.data]);
 
-  const lastItemCallback = () => {
+  const lastItemCallback = useCallback(() => {
     itemsListRef.current?.scrollToEnd({ animated: true });
-  };
+  }, [props.data]);
 
-  const firstItemCallback = () => {
+  const firstItemCallback = useCallback(() => {
     itemsListRef.current?.scrollToIndex({ index: 0, animated: true });
-  };
+  }, [props.data]);
 
+  const itemIndexCallback = useCallback(
+    (index: number) => {
+      itemsListRef.current?.scrollToIndex({
+        index: index,
+        animated: true,
+        viewPosition: 0.5,
+        viewOffset: -index * 10
+      });
+    },
+    [props.data]
+  );
   useImperativeHandle(
     ref,
     () => ({
       toFirstItem: firstItemCallback,
       toBeforeItem: beforeItemCallback,
       toNextItem: nextItemCallback,
-      toLastItem: lastItemCallback
+      toLastItem: lastItemCallback,
+      toItemIndex: itemIndexCallback
     }),
     [props.data]
   );
@@ -105,9 +117,13 @@ export const Slider = forwardRef<Slider, SliderProps>((props, ref) => {
         itemsListRef.current?.forceUpdate();
       }}
       horizontal
-      contentContainerStyle={{ gap: 20 }}
+      contentContainerStyle={{ gap: 10, backgroundColor: 'blue' }}
       data={props.data}
-      renderItem={props.renderItem}
+      renderItem={({ index, separators, item }) => {
+        return (
+          <props.renderItem index={index} item={item} separators={separators} />
+        );
+      }}
       keyExtractor={(item) => item.id}
     />
   );

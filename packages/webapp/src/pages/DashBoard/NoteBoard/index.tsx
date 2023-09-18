@@ -18,7 +18,12 @@ export function NoteBoard() {
     },
     {
       id: '2',
-      title: 'Mathematics and calculus and programming',
+      title: 'Programming',
+      backgroundColor: '#DACCCD'
+    },
+    {
+      id: '3',
+      title: 'Python',
       backgroundColor: '#DACCCD'
     }
   ]);
