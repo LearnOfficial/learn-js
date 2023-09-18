@@ -25,9 +25,6 @@ export type SliderProps = {
 
 export const Slider = forwardRef<Slider, SliderProps>((props, ref) => {
   const itemsListRef = useRef<FlatList<any>>(null);
-  const viewabilityConfig = useRef({
-    itemVisiblePercentThreshold: 50
-  });
 
   const viewableItemsRef = useRef<ViewToken[]>([]);
   const viewableItemsOffset = useRef<
@@ -37,6 +34,7 @@ export const Slider = forwardRef<Slider, SliderProps>((props, ref) => {
     (info: IOnViewableItemsChangeParams) => void
   >(({ viewableItems }: IOnViewableItemsChangeParams) => {
     viewableItemsRef.current = viewableItems;
+    console.log(viewableItems);
   });
 
   useEffect(() => {
@@ -100,9 +98,12 @@ export const Slider = forwardRef<Slider, SliderProps>((props, ref) => {
   return (
     <FlatList
       ref={itemsListRef}
+      bounces
       showsHorizontalScrollIndicator={false}
       onViewableItemsChanged={onViewableItemsChanged.current}
-      viewabilityConfig={viewabilityConfig.current}
+      onContentSizeChange={() => {
+        itemsListRef.current?.forceUpdate();
+      }}
       horizontal
       contentContainerStyle={{ gap: 20 }}
       data={props.data}

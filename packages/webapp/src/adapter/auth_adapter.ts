@@ -8,10 +8,7 @@ export const authProviderAdapter = {
     await localStorageAdapter.setItem('token', token);
     setToken(token);
   },
-  async logOut(
-    _: string,
-    setToken: React.Dispatch<React.SetStateAction<string>>
-  ) {
+  async logOut(setToken: React.Dispatch<React.SetStateAction<string>>) {
     await localStorageAdapter.removeItem('token');
     setToken('');
   },

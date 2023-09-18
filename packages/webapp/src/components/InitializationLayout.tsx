@@ -1,20 +1,17 @@
 import React from 'react';
-import { Await, useOutlet } from 'react-router-dom';
-import { localStorageAdapter } from '../adapter/local_storage_adapter';
-import { AuthProvider } from '@learn/ui';
+import { Await, useLoaderData, useOutlet } from 'react-router-dom';
+import { AuthProvider, useAuth } from '@learn/ui';
 import { authProviderAdapter } from '../adapter/auth_adapter';
 import { TextProgress } from './TextProgress';
 
-async function checkToken() {
-  return await localStorageAdapter.getItem('token');
-}
-
 export function InitializationLayout() {
   const outlet = useOutlet();
+  const { initializationLoader } = useLoaderData();
+
   return (
     <React.Suspense fallback={<TextProgress />}>
       <Await
-        resolve={checkToken}
+        resolve={initializationLoader}
         children={(token) => (
           <AuthProvider adapter={authProviderAdapter} token={token}>
             {outlet}

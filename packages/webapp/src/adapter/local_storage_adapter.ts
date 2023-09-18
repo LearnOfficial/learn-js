@@ -4,7 +4,7 @@ export const localStorageAdapter = {
   },
 
   async getItem(key: string) {
-    localStorage.getItem(key);
+    return localStorage.getItem(key);
   },
 
   async removeItem(key: string) {

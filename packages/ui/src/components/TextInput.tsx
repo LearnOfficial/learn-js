@@ -1,21 +1,32 @@
 import { useState } from 'react';
-import { TextInput as RNTextInput, StyleProp, TextStyle } from 'react-native';
+import {
+  NativeSyntheticEvent,
+  TextInput as RNTextInput,
+  StyleProp,
+  TextInputSubmitEditingEventData,
+  TextStyle
+} from 'react-native';
 
 export type TextInputProps = {
   placeholder: string;
   inputRef: React.MutableRefObject<string>;
   style?: StyleProp<TextStyle>;
+  onSubmitEditing?: (
+    e: NativeSyntheticEvent<TextInputSubmitEditingEventData>
+  ) => void;
 };
 
 export default function TextInput({
   placeholder,
   inputRef,
-  style
+  style,
+  onSubmitEditing
 }: TextInputProps) {
   const [onFocus, setOnFocus] = useState<boolean>(false);
 
   return (
     <RNTextInput
+      defaultValue={inputRef.current}
       onFocus={() => {
         setOnFocus(true);
       }}
@@ -27,12 +38,12 @@ export default function TextInput({
           padding: 10,
           borderWidth: onFocus ? 1 : 2,
           borderColor: onFocus ? 'black' : 'grey',
-          color: onFocus ? 'black' : 'grey',
-          width: '100%'
+          color: onFocus ? 'black' : 'grey'
         },
         style
       ]}
       onChangeText={(input) => (inputRef.current = input)}
+      onSubmitEditing={onSubmitEditing}
       placeholder={placeholder}
     />
   );

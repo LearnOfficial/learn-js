@@ -4,7 +4,7 @@ export type ICommonAuthParameter = React.Dispatch<React.SetStateAction<string>>;
 
 export type IAuthProviderAdapter = {
   logIn: (token: string, setToken: ICommonAuthParameter) => Promise<void>;
-  logOut: (token: string, setToken: ICommonAuthParameter) => Promise<void>;
+  logOut: (setToken: ICommonAuthParameter) => Promise<void>;
   signUp: (token: string, setToken: ICommonAuthParameter) => Promise<void>;
 };
 
@@ -36,8 +36,8 @@ export function AuthProvider({ children, adapter, token }: IAuthProviderProps) {
       await adapter.logIn(token, setToken);
     };
 
-    const logOut = async (token: string) => {
-      await adapter.logOut(token, setToken);
+    const logOut = async () => {
+      await adapter.logOut(setToken);
     };
 
     const signUp = async (token: string) => {

@@ -1,17 +1,8 @@
-import { StaticImage, useAuth } from '@learn/ui';
-import {
-  ColorValue,
-  FlatList,
-  Pressable,
-  Text,
-  View,
-  ViewToken
-} from 'react-native';
+import { Button, StaticImage, useAuth } from '@learn/ui';
+import { ColorValue, Pressable, View } from 'react-native';
 import { SubjectContainer } from './components/SubjectContainer';
 import { SubjectItemsContainer } from './components/SubjectItemsContainer';
-import { SubjectItem } from './components/SubjectItem';
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { Slider } from './components/slider';
+import { useState } from 'react';
 
 type ISubjectItems = {
   id: string;
@@ -28,23 +19,8 @@ export function NoteBoard() {
     },
     {
       id: '2',
-      title: 'Physics',
-      backgroundColor: '#DACEED'
-    },
-    {
-      id: '3',
-      title: 'Physics',
-      backgroundColor: '#DACEED'
-    },
-    {
-      id: '4',
-      title: 'Physics',
-      backgroundColor: '#DACEED'
-    },
-    {
-      id: '5',
-      title: 'Physics',
-      backgroundColor: '#DACEED'
+      title: 'Mathematics and calculus and programming',
+      backgroundColor: '#DACCCD'
     }
   ]);
 
@@ -85,6 +61,9 @@ export function NoteBoard() {
       </View>
 
       <View style={{ flex: 2, backgroundColor: 'yellow' }}></View>
+      <View>
+        <Button title="logout" onPress={async () => await logOut()} />
+      </View>
     </View>
   );
 }

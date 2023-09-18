@@ -17,8 +17,7 @@ export function LogIn() {
   const username = useRef<string>('');
   const password = useRef<string>('');
 
-  const [loadLogIn, { loading, called, data, error }] =
-    useLazyQuery(LOGIN_QUERY);
+  const [loadLogIn, { data }] = useLazyQuery(LOGIN_QUERY);
 
   useEffect(() => {
     if (data) {
