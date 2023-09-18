@@ -2,17 +2,15 @@ import {
   MutableRefObject,
   forwardRef,
   useCallback,
-  useEffect,
   useImperativeHandle,
-  useRef
+  useRef,
+  memo
 } from 'react';
 import {
   FlatList,
   ListRenderItem,
-  Pressable,
   StyleProp,
   StyleSheet,
-  Text,
   ViewStyle,
   ViewToken
 } from 'react-native';
@@ -22,7 +20,7 @@ export type IOnViewableItemsChangeParams = {
   changed: ViewToken[];
 };
 
-export type Slider = {
+export type SliderRef = {
   toNextItem: () => void;
   toBeforeItem: () => void;
   toLastItem: () => void;
@@ -34,9 +32,10 @@ export type SliderProps = {
   data: MutableRefObject<any[]>;
   renderItem: ListRenderItem<any>;
   contentContainerStyle?: StyleProp<ViewStyle>;
+  keyExtractor: (item: any) => string;
 };
 
-export const Slider = forwardRef<Slider, SliderProps>((props, ref) => {
+export const Slider = forwardRef<SliderRef, SliderProps>((props, ref) => {
   const itemsListRef = useRef<FlatList<any>>(null);
 
   const viewableItemsRef = useRef<ViewToken[]>([]);
@@ -108,6 +107,7 @@ export const Slider = forwardRef<Slider, SliderProps>((props, ref) => {
   const refresh = useCallback(() => {
     itemsListRef.current?.forceUpdate();
   }, [props.data]);
+
   useImperativeHandle(
     ref,
     () => ({
@@ -121,15 +121,14 @@ export const Slider = forwardRef<Slider, SliderProps>((props, ref) => {
     [props.data]
   );
 
+  console.log('slider');
+
   return (
     <FlatList
       ref={itemsListRef}
       bounces
       showsHorizontalScrollIndicator={false}
       onViewableItemsChanged={onViewableItemsChanged.current}
-      onContentSizeChange={() => {
-        itemsListRef.current?.forceUpdate();
-      }}
       horizontal
       contentContainerStyle={[props.contentContainerStyle]}
       data={props.data.current}
@@ -143,10 +142,7 @@ export const Slider = forwardRef<Slider, SliderProps>((props, ref) => {
           />
         );
       }}
-      ListFooterComponent={() => {
-        return <></>;
-      }}
-      keyExtractor={(item) => item.id}
+      keyExtractor={props.keyExtractor}
     />
   );
 });

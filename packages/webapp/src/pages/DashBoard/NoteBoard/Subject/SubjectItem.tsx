@@ -1,12 +1,12 @@
 import { TextInput } from '@learn/ui';
-import { MutableRefObject, RefObject, useRef, useState } from 'react';
+import { RefObject, useRef, useState } from 'react';
 import { ColorValue, Pressable, Text, View } from 'react-native';
-import { Slider } from '../../components/slider';
+import { SliderRef } from '../../components/slider';
 
 export type SubjectItemProps = {
   title: string;
   backgroundColor: ColorValue;
-  sliderRef: RefObject<Slider>;
+  sliderRef: RefObject<SliderRef>;
   index: number;
 };
 

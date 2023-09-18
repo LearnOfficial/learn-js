@@ -2,7 +2,7 @@ import { StaticImage } from '@learn/ui';
 import { MutableRefObject, useRef } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { SubjectItem } from './SubjectItem';
-import { Slider } from '../../components/slider';
+import { Slider, SliderRef } from '../../components/slider';
 
 export type SubjectItemsContainerProps = {
   onAdd?: () => void;
@@ -13,7 +13,7 @@ export function SubjectItemsContainer({
   onAdd,
   data
 }: SubjectItemsContainerProps) {
-  const sliderRef = useRef<Slider>(null);
+  const sliderRef = useRef<SliderRef>(null);
 
   return (
     <>
@@ -38,6 +38,7 @@ export function SubjectItemsContainer({
           contentContainerStyle={{
             gap: 20
           }}
+          keyExtractor={(item) => item.id}
           ref={sliderRef}
           data={data}
           renderItem={({ item, index }) => (

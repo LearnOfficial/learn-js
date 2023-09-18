@@ -1,12 +1,9 @@
-import { Button, useAuth } from '@learn/ui';
 import { View } from 'react-native';
 import { TaskBar } from './TaskBar';
 import { QuickBar } from './QuickBar';
 import { NoteBoard } from './NoteBoard';
 
 export function DashBoard() {
-  const { logOut } = useAuth();
-
   return (
     <View style={{ flex: 1, flexDirection: 'row' }}>
       <View
