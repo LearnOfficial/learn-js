@@ -6,12 +6,12 @@ import {
   defer
 } from 'react-router-dom';
 import { AuthLayout } from './components/AuthLayout';
-import { NoteBoard } from './pages/NoteBoard';
 import { SignUp } from './pages/SignUp';
 import { LogIn } from './pages/LogIn';
 import { AuthenticationLayout } from './components/AuthenticationLayout';
 import { InitializationLayout } from './components/InitializationLayout';
 import { localStorageAdapter } from './adapter/local_storage_adapter';
+import { DashBoard } from './pages/DashBoard';
 
 async function initializationLoader() {
   return await localStorageAdapter.getItem('token');
@@ -26,7 +26,7 @@ const router = createBrowserRouter(
       }
     >
       <Route element={<AuthLayout />}>
-        <Route path="/" element={<NoteBoard />}></Route>
+        <Route path="/" element={<DashBoard />}></Route>
       </Route>
 
       <Route element={<AuthenticationLayout />}>

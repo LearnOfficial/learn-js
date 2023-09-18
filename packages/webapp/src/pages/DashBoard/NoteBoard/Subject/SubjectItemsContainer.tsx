@@ -1,8 +1,8 @@
 import { StaticImage } from '@learn/ui';
 import { useRef } from 'react';
 import { Pressable, Text, View } from 'react-native';
-import { Slider } from './slider';
 import { SubjectItem } from './SubjectItem';
+import { Slider } from '../../components/slider';
 
 export type SubjectItemsContainerProps = {
   onAdd?: () => void;
