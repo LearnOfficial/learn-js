@@ -1,4 +1,4 @@
-import { useAuth } from '@learn/ui';
+import { Button, useAuth } from '@learn/ui';
 import { View } from 'react-native';
 import { TaskBar } from './TaskBar';
 import { QuickBar } from './QuickBar';

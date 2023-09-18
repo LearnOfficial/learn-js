@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 import { ColorValue, View } from 'react-native';
 import { SubjectContainer } from './Subject/SubjectContainer';
 import { SubjectItemsContainer } from './Subject/SubjectItemsContainer';
@@ -10,7 +10,7 @@ type ISubjectItems = {
 };
 
 export function NoteBoard() {
-  const [subjects, setSubjects] = useState<ISubjectItems[]>([
+  const subjects = useRef<ISubjectItems[]>([
     {
       id: '1',
       title: 'Physics',
@@ -31,7 +31,16 @@ export function NoteBoard() {
   return (
     <View style={{ flex: 3, padding: 20 }}>
       <SubjectContainer>
-        <SubjectItemsContainer data={subjects} onAdd={() => {}} />
+        <SubjectItemsContainer
+          data={subjects}
+          onAdd={() => {
+            subjects.current.unshift({
+              id: `${subjects.current.length + 1}`,
+              title: 'Python',
+              backgroundColor: '#DACCCD'
+            });
+          }}
+        />
       </SubjectContainer>
     </View>
   );

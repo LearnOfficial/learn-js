@@ -13,7 +13,7 @@ function getDaysInMonth(month: number, year: number) {
 }
 
 export function TaskBar() {
-  const augustDays = getDaysInMonth(7, 2023);
+  const augustDays = useRef(getDaysInMonth(7, 2023));
   const sliderRef = useRef<Slider>(null);
 
   return (
@@ -26,11 +26,15 @@ export function TaskBar() {
 
       <View>
         <Slider
+          contentContainerStyle={{
+            gap: 20
+          }}
           ref={sliderRef}
           data={augustDays}
           renderItem={({ item, index }: { item: Date; index: number }) => {
             return (
               <Pressable
+                key={index}
                 onPress={() => {
                   sliderRef.current?.toItemIndex(index);
                 }}

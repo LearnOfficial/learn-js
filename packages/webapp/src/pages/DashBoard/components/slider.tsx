@@ -1,11 +1,21 @@
 import {
+  MutableRefObject,
   forwardRef,
   useCallback,
   useEffect,
   useImperativeHandle,
   useRef
 } from 'react';
-import { FlatList, ListRenderItem, Pressable, ViewToken } from 'react-native';
+import {
+  FlatList,
+  ListRenderItem,
+  Pressable,
+  StyleProp,
+  StyleSheet,
+  Text,
+  ViewStyle,
+  ViewToken
+} from 'react-native';
 
 export type IOnViewableItemsChangeParams = {
   viewableItems: ViewToken[];
@@ -18,10 +28,12 @@ export type Slider = {
   toLastItem: () => void;
   toFirstItem: () => void;
   toItemIndex: (index: number) => void;
+  refresh: () => void;
 };
 export type SliderProps = {
-  data: ArrayLike<any>;
+  data: MutableRefObject<any[]>;
   renderItem: ListRenderItem<any>;
+  contentContainerStyle?: StyleProp<ViewStyle>;
 };
 
 export const Slider = forwardRef<Slider, SliderProps>((props, ref) => {
@@ -36,10 +48,6 @@ export const Slider = forwardRef<Slider, SliderProps>((props, ref) => {
   >(({ viewableItems }: IOnViewableItemsChangeParams) => {
     viewableItemsRef.current = viewableItems;
   });
-
-  useEffect(() => {
-    itemsListRef.current?.scrollToIndex({ index: 0, animated: true });
-  }, [props.data]);
 
   const beforeItemCallback = useCallback(() => {
     if (viewableItemsOffset.current.length == 0) {
@@ -90,11 +98,16 @@ export const Slider = forwardRef<Slider, SliderProps>((props, ref) => {
         index: index,
         animated: true,
         viewPosition: 0.5,
-        viewOffset: -index * 10
+        viewOffset:
+          -index * StyleSheet.flatten(props.contentContainerStyle)?.gap! ?? 1
       });
     },
     [props.data]
   );
+
+  const refresh = useCallback(() => {
+    itemsListRef.current?.forceUpdate();
+  }, [props.data]);
   useImperativeHandle(
     ref,
     () => ({
@@ -102,7 +115,8 @@ export const Slider = forwardRef<Slider, SliderProps>((props, ref) => {
       toBeforeItem: beforeItemCallback,
       toNextItem: nextItemCallback,
       toLastItem: lastItemCallback,
-      toItemIndex: itemIndexCallback
+      toItemIndex: itemIndexCallback,
+      refresh: refresh
     }),
     [props.data]
   );
@@ -117,12 +131,20 @@ export const Slider = forwardRef<Slider, SliderProps>((props, ref) => {
         itemsListRef.current?.forceUpdate();
       }}
       horizontal
-      contentContainerStyle={{ gap: 10, backgroundColor: 'blue' }}
-      data={props.data}
+      contentContainerStyle={[props.contentContainerStyle]}
+      data={props.data.current}
       renderItem={({ index, separators, item }) => {
         return (
-          <props.renderItem index={index} item={item} separators={separators} />
+          <props.renderItem
+            key={index}
+            index={index}
+            item={item}
+            separators={separators}
+          />
         );
+      }}
+      ListFooterComponent={() => {
+        return <></>;
       }}
       keyExtractor={(item) => item.id}
     />

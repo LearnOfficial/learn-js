@@ -1,12 +1,12 @@
 import { StaticImage } from '@learn/ui';
-import { useRef } from 'react';
+import { MutableRefObject, useRef } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { SubjectItem } from './SubjectItem';
 import { Slider } from '../../components/slider';
 
 export type SubjectItemsContainerProps = {
   onAdd?: () => void;
-  data: ArrayLike<any>;
+  data: MutableRefObject<any[]>;
 };
 
 export function SubjectItemsContainer({
@@ -14,7 +14,6 @@ export function SubjectItemsContainer({
   data
 }: SubjectItemsContainerProps) {
   const sliderRef = useRef<Slider>(null);
-  const sliderCurrentIndexRef = useRef<number>(0);
 
   return (
     <>
@@ -36,6 +35,9 @@ export function SubjectItemsContainer({
       </View>
       <View style={{ flexDirection: 'row', gap: 10, flexWrap: 'wrap' }}>
         <Slider
+          contentContainerStyle={{
+            gap: 20
+          }}
           ref={sliderRef}
           data={data}
           renderItem={({ item, index }) => (
@@ -57,10 +59,10 @@ export function SubjectItemsContainer({
             alignItems: 'center'
           }}
           onPress={() => {
-            sliderRef.current?.toLastItem();
-
             if (onAdd) {
               onAdd();
+              sliderRef.current?.refresh();
+              sliderRef.current?.toFirstItem();
             }
           }}
         >
