@@ -48,8 +48,6 @@ export const TaskBarCalendarItem = memo(
       []
     );
 
-    console.log('render calendar item');
-
     return (
       <Pressable
         key={props.index}

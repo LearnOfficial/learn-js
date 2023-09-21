@@ -2,7 +2,7 @@ import { ApolloClient } from '@learn/ui';
 import { AppRouter } from './AppRouter';
 import './App.css';
 
-export function App() {
+export default function App() {
   return (
     <ApolloClient>
       <AppRouter />

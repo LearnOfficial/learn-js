@@ -5,8 +5,6 @@ export function AuthLayout() {
   const outlet = useOutlet();
   const { token } = useAuth();
 
-  console.log(token);
-
   if (token == '') {
     return <Navigate to="/login" />;
   }

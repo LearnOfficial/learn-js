@@ -2863,6 +2863,7 @@ __metadata:
     "@apollo/client": ^3.8.3
     "@learn/common": "workspace:*"
     "@learn/ui": "workspace:*"
+    "@shopify/react-native-skia": ^0.1.208
     "@types/react": ^18.2.15
     "@types/react-dom": ^18.2.7
     "@types/react-native": ^0.72.2
@@ -2870,6 +2871,7 @@ __metadata:
     "@typescript-eslint/parser": ^6.0.0
     "@vitejs/plugin-react": ^4.0.4
     "@vitejs/plugin-react-swc": ^3.3.2
+    canvaskit-wasm: ^0.38.2
     eslint: ^8.45.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.4.3
@@ -3458,6 +3460,27 @@ __metadata:
     colors: ~1.2.1
     string-argv: ~0.3.1
   checksum: c80dcfc99630ee51c6654c58ff41f69a3bd89c38e41d9871692bc73ee3c938ced79f8b75e182e492cafb2f6ddeb0628606856af494a0259ff6fac5b248996bed
+  languageName: node
+  linkType: hard
+
+"@shopify/react-native-skia@npm:^0.1.208":
+  version: 0.1.208
+  resolution: "@shopify/react-native-skia@npm:0.1.208"
+  dependencies:
+    canvaskit-wasm: 0.38.0
+    react-reconciler: ^0.27.0
+  peerDependencies:
+    react: ">=18.0"
+    react-native: ">=0.64"
+    react-native-reanimated: ">=2.0.0"
+  peerDependenciesMeta:
+    react-native:
+      optional: true
+    react-native-reanimated:
+      optional: true
+  bin:
+    setup-skia-web: scripts/setup-canvaskit.js
+  checksum: e697a8eb0e5a41ce44b19d6756402a957aacfc2b659c3f9c16b21c1e6b2f43d4e976d5dfc4e98289b8425a09f7a1bf328eded0b0d1e3bfd8af82a9e6402f603c
   languageName: node
   linkType: hard
 
@@ -5520,6 +5543,20 @@ __metadata:
   version: 1.0.30001527
   resolution: "caniuse-lite@npm:1.0.30001527"
   checksum: 7ad99d78d1a30d494471c8a9ead3fc40a816ee61b16fef330bba5bdae5d7ebaa965becc8cd09c7aa6240125ce790a5213a40cd240ceaa211508744ed86b79783
+  languageName: node
+  linkType: hard
+
+"canvaskit-wasm@npm:0.38.0":
+  version: 0.38.0
+  resolution: "canvaskit-wasm@npm:0.38.0"
+  checksum: 5a743d7623187949241e1b18aa2bb43016dc837fa903594921afed4afb6b58032bccf81a30cdf71e23f185fc3827864f8ce780799c38de5325492a0fe2425e4e
+  languageName: node
+  linkType: hard
+
+"canvaskit-wasm@npm:^0.38.2":
+  version: 0.38.2
+  resolution: "canvaskit-wasm@npm:0.38.2"
+  checksum: a0b526759d0a1df9a76b69efe6fc9451b3dab81ecff0978c7153ead973e886e0ea33af53e67ab42d8b376e04091dbb3e898ab820cc7bf61fb6cdc36be900b812
   languageName: node
   linkType: hard
 
@@ -11971,6 +12008,18 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-reconciler@npm:^0.27.0":
+  version: 0.27.0
+  resolution: "react-reconciler@npm:0.27.0"
+  dependencies:
+    loose-envify: ^1.1.0
+    scheduler: ^0.21.0
+  peerDependencies:
+    react: ^18.0.0
+  checksum: c2ae111f150c2a46970182df12ea8254719fdfec5e26574711b1838fc37863c63671460a351570fd359c088d891e7bb0ff89023c2f7c1582393b57dd517b92c2
+  languageName: node
+  linkType: hard
+
 "react-refresh@npm:^0.14.0":
   version: 0.14.0
   resolution: "react-refresh@npm:0.14.0"
@@ -12530,6 +12579,15 @@ __metadata:
   dependencies:
     loose-envify: ^1.1.0
   checksum: 232149125c10f10193b1340ec4bbf14a8e6a845152790d6fd6f58207642db801abdb5a21227561a0a93871b98ba47539a6233b4e6155aae72d6db6db9f9f09b3
+  languageName: node
+  linkType: hard
+
+"scheduler@npm:^0.21.0":
+  version: 0.21.0
+  resolution: "scheduler@npm:0.21.0"
+  dependencies:
+    loose-envify: ^1.1.0
+  checksum: 4f8285076041ed2c81acdd1faa987f1655fdbd30554bc667c1ea64743fc74fb3a04ca7d27454b3d678735df5a230137a3b84756061b43dc5796e80701b66d124
   languageName: node
   linkType: hard
 

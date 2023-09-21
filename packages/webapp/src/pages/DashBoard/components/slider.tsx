@@ -121,8 +121,6 @@ export const Slider = forwardRef<SliderRef, SliderProps>((props, ref) => {
     [props.data]
   );
 
-  console.log('slider');
-
   return (
     <FlatList
       ref={itemsListRef}
