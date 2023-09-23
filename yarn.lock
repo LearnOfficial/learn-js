@@ -38,9 +38,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apollo/client@npm:^3.8.3":
-  version: 3.8.3
-  resolution: "@apollo/client@npm:3.8.3"
+"@apollo/client@npm:^3.8.3, @apollo/client@npm:^3.8.4":
+  version: 3.8.4
+  resolution: "@apollo/client@npm:3.8.4"
   dependencies:
     "@graphql-typed-document-node/core": ^3.1.1
     "@wry/context": ^0.7.3
@@ -70,7 +70,7 @@ __metadata:
       optional: true
     subscriptions-transport-ws:
       optional: true
-  checksum: cdecd5d613c0f941d00fc1904b9ecdeb502fc157c10400430231adb47d8f67727c78eed1b7489aed91cce6e20e32fc44e16b6c2d5424a42d7c100dcef65b942b
+  checksum: 509e37cdce7462cacda0a86c413ce471cd8f618625fb8ac3a60d6347d12f37a4fc60e12fc3fc1a375799caa21e56ff58d709e13ef5e13ab15e4dfc828a527848
   languageName: node
   linkType: hard
 
@@ -2817,19 +2817,20 @@ __metadata:
   resolution: "@learn/ui@workspace:packages/ui"
   dependencies:
     "@apollo/client": ^3.8.3
-    "@learn/common": "workspace:*"
     "@types/react": ^18.2.21
     "@types/react-native": ^0.72.2
     "@vitejs/plugin-react": ^4.0.4
     "@vitejs/plugin-react-swc": ^3.3.2
     graphql: ^16.8.0
+    typescript: ^5.2.2
+    vite: ^4.4.9
+    vite-plugin-dts: ^3.5.3
+  peerDependencies:
+    "@learn/common": "workspace:*"
     react: ^18.2.0
     react-dom: ^18.2.0
     react-native: ^0.72.4
     react-native-web: ^0.19.8
-    typescript: ^5.2.2
-    vite: ^4.4.9
-    vite-plugin-dts: ^3.5.3
   languageName: unknown
   linkType: soft
 
@@ -2860,7 +2861,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@learn/webapp@workspace:packages/webapp"
   dependencies:
-    "@apollo/client": ^3.8.3
+    "@apollo/client": ^3.8.4
     "@learn/common": "workspace:*"
     "@learn/ui": "workspace:*"
     "@shopify/react-native-skia": ^0.1.208
@@ -11960,7 +11961,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native@npm:0.72.4, react-native@npm:^0.72.4":
+"react-native@npm:0.72.4":
   version: 0.72.4
   resolution: "react-native@npm:0.72.4"
   dependencies:
