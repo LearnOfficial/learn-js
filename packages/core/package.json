@@ -18,6 +18,7 @@
     "typeorm": "^0.3.17"
   },
   "devDependencies": {
+    "@learn/config": "workspace:*",
     "@types/jsonwebtoken": "^9.0.2",
     "@types/node": "^20.5.6",
     "nodemon": "^3.0.1",

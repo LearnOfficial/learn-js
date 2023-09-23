@@ -1,6 +1,9 @@
 {
-  "extends": "../../tsconfig.json",
+  "extends": "@learn/config/tsconfig.json",
   "compilerOptions": {
+    "declaration": true,
+    "outDir": "dist",
+    "noEmit": false,
     "paths": {
       "@learn/common/*": ["../common/dist/*"]
     }

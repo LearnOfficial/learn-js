@@ -1,5 +1,5 @@
 // vite.config.ts
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import * as path from 'node:path';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
@@ -28,9 +28,7 @@ export default defineConfig({
         'react-native',
         '@learn/common',
         '@apollo/client',
-        'graphql',
-        'react-native-reanimated',
-        '@shopify/react-native-skia'
+        'graphql'
       ],
       output: {
         globals: {
@@ -41,8 +39,5 @@ export default defineConfig({
         }
       }
     }
-  },
-  optimizeDeps: {
-    exclude: ['@apollo/client']
   }
 }) satisfies InlineConfig;
