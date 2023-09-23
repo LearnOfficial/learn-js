@@ -9,7 +9,7 @@ export type LearnLogoProps = {
 
 const aspectRatio = 920 / 433;
 
-export default function StaticImage({ size, image, style }: LearnLogoProps) {
+export function StaticImage({ size, image, style }: LearnLogoProps) {
   const height = size / aspectRatio;
   return (
     <View

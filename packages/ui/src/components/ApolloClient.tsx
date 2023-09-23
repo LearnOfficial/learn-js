@@ -10,10 +10,10 @@ const client = new ApolloClientNative({
   cache: new InMemoryCache()
 });
 
-type ApolloClientProps = {
+export type ApolloClientProps = {
   children: ReactNode;
 };
 
-export default function ApolloClient({ children }: ApolloClientProps) {
+export function ApolloClient({ children }: ApolloClientProps) {
   return <ApolloProvider client={client}>{children}</ApolloProvider>;
 }

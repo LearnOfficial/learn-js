@@ -7,7 +7,7 @@ export type SecureTextInputProps = {
   style?: StyleProp<TextStyle>;
 };
 
-export default function SecureTextInput({
+export function SecureTextInput({
   placeholder,
   inputRef,
   style

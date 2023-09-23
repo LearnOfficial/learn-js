@@ -1,21 +1,5 @@
-import StaticImage from './components/StaticImage';
-import TextInput from './components/TextInput';
-import SecureTextInput from './components/SecureTextInput';
-import Button from './components/Button';
-import ApolloClient from './components/ApolloClient';
-import { parseLogInOptions, LOGIN_QUERY } from './queries/parseLogIn';
-import { AuthProvider, useAuth } from './hooks/auth';
-import { SIGN_UP_MUTATION, parseSignUpOptions } from './mutations/parseSignUp';
-export {
-  StaticImage,
-  TextInput,
-  SecureTextInput,
-  Button,
-  ApolloClient,
-  parseLogInOptions,
-  LOGIN_QUERY,
-  AuthProvider,
-  useAuth,
-  SIGN_UP_MUTATION,
-  parseSignUpOptions
-};
+export * from './components';
+export * from './queries';
+export * from './hooks';
+export * from './mutations';
+export * from './assets';

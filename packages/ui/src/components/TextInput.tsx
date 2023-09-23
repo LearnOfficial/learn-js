@@ -16,7 +16,7 @@ export type TextInputProps = {
   ) => void;
 };
 
-export default function TextInput({
+export function TextInput({
   placeholder,
   inputRef,
   style,

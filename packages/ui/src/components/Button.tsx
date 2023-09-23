@@ -5,7 +5,7 @@ export type ButtonProps = {
   onPress?: () => void;
   style?: StyleProp<ViewStyle>;
 };
-export default function Button({ title, onPress, style }: ButtonProps) {
+export function Button({ title, onPress, style }: ButtonProps) {
   return (
     <Pressable
       onPress={onPress}

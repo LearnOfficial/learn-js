@@ -28,7 +28,9 @@ export default defineConfig({
         'react-native',
         '@learn/common',
         '@apollo/client',
-        'graphql'
+        'graphql',
+        'react-native-reanimated',
+        '@shopify/react-native-skia'
       ],
       output: {
         globals: {
