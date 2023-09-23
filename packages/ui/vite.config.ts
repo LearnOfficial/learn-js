@@ -18,7 +18,7 @@ export default defineConfig({
       entry: path.resolve(__dirname, 'src/index.tsx'),
       name: 'ui',
       fileName: (format, entryName) => `${entryName}-${format}.js`,
-      formats: ['es', 'cjs']
+      formats: ['es']
     },
     rollupOptions: {
       external: [
@@ -26,7 +26,9 @@ export default defineConfig({
         'react/jsx-runtime',
         'react-dom',
         'react-native',
-        'react-native-reanimated'
+        '@learn/common',
+        '@apollo/client',
+        'graphql'
       ],
       output: {
         globals: {
@@ -37,5 +39,8 @@ export default defineConfig({
         }
       }
     }
+  },
+  optimizeDeps: {
+    exclude: ['@apollo/client']
   }
 }) satisfies InlineConfig;
