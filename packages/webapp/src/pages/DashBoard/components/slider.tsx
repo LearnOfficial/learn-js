@@ -3,8 +3,7 @@ import {
   forwardRef,
   useCallback,
   useImperativeHandle,
-  useRef,
-  memo
+  useRef
 } from 'react';
 import {
   FlatList,
@@ -42,11 +41,6 @@ export const Slider = forwardRef<SliderRef, SliderProps>((props, ref) => {
   const viewableItemsOffset = useRef<
     { length: number; lastItemIndex: number; firstItemIndex: number }[]
   >([]);
-  const onViewableItemsChanged = useRef<
-    (info: IOnViewableItemsChangeParams) => void
-  >(({ viewableItems }: IOnViewableItemsChangeParams) => {
-    viewableItemsRef.current = viewableItems;
-  });
 
   const beforeItemCallback = useCallback(() => {
     if (viewableItemsOffset.current.length == 0) {
@@ -107,6 +101,12 @@ export const Slider = forwardRef<SliderRef, SliderProps>((props, ref) => {
   const refresh = useCallback(() => {
     itemsListRef.current?.forceUpdate();
   }, [props.data]);
+
+  const onViewableItemsChanged = useRef<
+    (info: IOnViewableItemsChangeParams) => void
+  >(({ viewableItems }: IOnViewableItemsChangeParams) => {
+    viewableItemsRef.current = viewableItems;
+  });
 
   useImperativeHandle(
     ref,

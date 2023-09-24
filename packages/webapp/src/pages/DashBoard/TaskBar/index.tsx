@@ -6,11 +6,10 @@ import {
   MutableRefObject,
   RefObject,
   forwardRef,
-  useCallback,
   useImperativeHandle,
-  useMemo,
   useRef,
-  useState
+  useState,
+  useEffect
 } from 'react';
 
 function getDaysInMonth(month: number, year: number) {
@@ -28,6 +27,7 @@ export type TaskBarCalendarItemProps = {
   sliderRef: RefObject<SliderRef>;
   onPress: (index: number, ref: ForwardedRef<TaskBarCalendarItemRef>) => void;
   item: Date;
+  enabled?: boolean;
 };
 
 export type TaskBarCalendarItemRef = {
@@ -36,7 +36,7 @@ export type TaskBarCalendarItemRef = {
 
 export const TaskBarCalendarItem = memo(
   forwardRef<TaskBarCalendarItemRef, TaskBarCalendarItemProps>((props, ref) => {
-    const [enable, setEnable] = useState<boolean>(false);
+    const [enable, setEnable] = useState<boolean>(props.enabled ?? false);
 
     useImperativeHandle(
       ref,
@@ -94,11 +94,14 @@ export const TaskBarCalendarItem = memo(
 );
 
 export function TaskBarCalendar() {
+  const currentDate: Date = new Date(Date.now());
   const sliderRef = useRef<SliderRef>(null);
-  const augustDays = useRef(getDaysInMonth(7, 2023));
+  const monthDays = useRef(
+    getDaysInMonth(currentDate.getMonth(), currentDate.getFullYear())
+  );
 
   const refs: MutableRefObject<TaskBarCalendarItemRef>[] =
-    augustDays.current.map(() => {
+    monthDays.current.map(() => {
       return useRef(null as any);
     });
 
@@ -106,36 +109,73 @@ export function TaskBarCalendar() {
   const dayTextRef = useRef<Text>(null);
   const dayNumberTextRef = useRef<Text>(null);
 
+  const changeCurrentDay = (index: number) => {
+    refs[index].current.changeState(true);
+    refs[lastItemIndex.current].current.changeState(false);
+    lastItemIndex.current = index;
+    //TODO: Find the use ref type
+    //@ts-ignore
+    dayTextRef.current.innerText = monthDays.current[index].toLocaleString(
+      'en-US',
+      { weekday: 'long' }
+    );
+    //@ts-ignore
+    dayNumberTextRef.current.innerText =
+      monthDays.current[index].getDate() +
+      ' ' +
+      monthDays.current[index].toLocaleString('en-US', { month: 'long' });
+  };
+
+  const isSetEnabled = useRef<boolean>(false);
+
   return (
-    <View>
-      <Text ref={dayTextRef}>Day title</Text>
-      <Text ref={dayNumberTextRef}>00</Text>
+    <View style={{ gap: 20 }}>
+      <View style={{}}>
+        <Text style={{ fontFamily: 'lexend', fontSize: 24 }} ref={dayTextRef}>
+          Day title
+        </Text>
+        <Text
+          style={{ fontFamily: 'lexend', fontSize: 10 }}
+          ref={dayNumberTextRef}
+        >
+          00
+        </Text>
+      </View>
       <Slider
         contentContainerStyle={{
           gap: 20
         }}
         ref={sliderRef}
-        data={augustDays}
+        data={monthDays}
         renderItem={({ item, index }: { item: Date; index: number }) => {
+          const enabled = currentDate.getDate() - 1 == index;
+          if (enabled && !isSetEnabled.current) {
+            lastItemIndex.current = index;
+            setTimeout(() => {
+              // TODO: Refactor this function with the changeCurrentDay function repeat code.
+              // @ts-ignore
+              dayTextRef.current.innerText = monthDays.current[
+                index
+              ].toLocaleString('en-US', { weekday: 'long' });
+              //@ts-ignore
+              dayNumberTextRef.current.innerText =
+                monthDays.current[index].getDate() +
+                ' ' +
+                monthDays.current[index].toLocaleString('en-US', {
+                  month: 'long'
+                });
+              sliderRef.current?.toItemIndex(currentDate.getDate() - 1);
+            }, 1000);
+          }
+
           return (
             <TaskBarCalendarItem
               index={index}
               sliderRef={sliderRef}
               item={item}
               ref={refs[index]}
-              onPress={(index) => {
-                refs[index].current.changeState(true);
-                refs[lastItemIndex.current].current.changeState(false);
-                lastItemIndex.current = index;
-                //TODO: Find the use ref type
-                //@ts-ignore
-                dayTextRef.current.innerText = augustDays.current[
-                  index
-                ].toLocaleString('en-US', { weekday: 'long' });
-                //@ts-ignore
-                dayNumberTextRef.current.innerText =
-                  augustDays.current[index].getDate();
-              }}
+              enabled={enabled}
+              onPress={changeCurrentDay}
             />
           );
         }}

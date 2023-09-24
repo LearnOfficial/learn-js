@@ -31,7 +31,13 @@ export function DashBoard() {
         <NoteBoard />
       </View>
 
-      <View style={{ flex: 1 }}>
+      <View
+        style={{
+          flex: 1,
+          paddingVertical: 20,
+          paddingHorizontal: 10
+        }}
+      >
         <TaskBar />
       </View>
     </View>
