@@ -3,7 +3,8 @@ import { View, Image } from 'react-native';
 
 export function QuickBar() {
   const uriUserImageProfile =
-    'https://raw.githubusercontent.com/LearnOfficial/learn/main/packages/ui/public/assets/imgs/female-profile-image.png';
+    'https://github.com/LearnOfficial/learn/blob/main/packages/ui/public/assets/imgs/female-profile-image.png?raw=true';
+  const userImageProfileSize = 40;
   return (
     <>
       <View
@@ -21,12 +22,8 @@ export function QuickBar() {
       </View>
       <View
         style={{
-          borderRadius: 40,
-          backgroundColor: 'blue',
-          width: 40,
-          height: 40,
-          borderColor: 'black',
-          borderWidth: 1
+          width: userImageProfileSize,
+          height: userImageProfileSize
         }}
       >
         <Image
@@ -34,9 +31,12 @@ export function QuickBar() {
             uri: uriUserImageProfile
           }}
           style={{
-            flex: 1
+            flex: 1,
+            borderRadius: userImageProfileSize,
+            borderColor: 'black',
+            borderWidth: 1
           }}
-          resizeMode="contain"
+          resizeMode="cover"
         />
       </View>
     </>
