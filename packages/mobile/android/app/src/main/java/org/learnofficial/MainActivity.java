@@ -1,4 +1,4 @@
-package com.learn;
+package org.learnofficial;
 
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
