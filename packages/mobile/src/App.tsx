@@ -1,5 +1,5 @@
 import {View} from 'react-native';
-import {Button, StaticImage} from '@learn/ui';
+import {Button, LearnIconSVG, StaticImage} from '@learn/ui';
 
 export function App() {
   return (
@@ -9,8 +9,7 @@ export function App() {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <StaticImage size={200} image="LearnLogo" />
-      <Button title="Hello world" />
+      <LearnIconSVG size={200} pageColor="black" lineColor={'white'} />
     </View>
   );
 }

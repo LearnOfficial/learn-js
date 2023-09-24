@@ -1,34 +1,30 @@
-// vite.config.ts
-import react from '@vitejs/plugin-react';
-import * as path from 'node:path';
-import { defineConfig } from 'vite';
+import path from 'node:path';
+import { resolve } from 'path';
+import { InlineConfig, defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
-import { InlineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [
     react(),
     dts({
-      entryRoot: path.resolve(__dirname, './src')
+      entryRoot: path.resolve(__dirname, 'src'),
+      outDir: resolve(__dirname, 'dist')
     })
   ],
   build: {
-    outDir: path.resolve(__dirname, 'dist'),
-    lib: {
-      entry: path.resolve(__dirname, 'src/index.tsx'),
-      name: 'ui',
-      fileName: (format, entryName) => `${entryName}-${format}.js`,
-      formats: ['es']
-    },
     rollupOptions: {
       external: [
         'react',
         'react/jsx-runtime',
         'react-dom',
         'react-native',
-        '@learn/common',
-        '@apollo/client',
-        'graphql'
+        'react-native-reanimated',
+        'react/jsx-runtime',
+        '@shopify/react-native-skia',
+        'react-native-reanimated',
+        'graphql',
+        '@apollo/client'
       ],
       output: {
         globals: {
@@ -38,6 +34,13 @@ export default defineConfig({
           'react-dom': 'ReactDOM'
         }
       }
+    },
+    outDir: resolve(__dirname, 'dist'),
+    lib: {
+      entry: resolve(__dirname, './src/index.tsx'),
+      name: 'ui',
+      fileName: (format, entryName) => `${entryName}-${format}.js`,
+      formats: ['es']
     }
   }
-}) satisfies InlineConfig;
+} satisfies InlineConfig);

@@ -1,5 +1,5 @@
 import { Platform } from 'react-native';
-const IMAGES = {
+const STATIC_IMAGES = {
   LearnLogo:
     Platform.OS === 'web'
       ? //@ts-ignore
@@ -32,4 +32,4 @@ const IMAGES = {
       : require('./assets/imgs/add-icon.png')
 };
 
-export { IMAGES };
+export { STATIC_IMAGES };

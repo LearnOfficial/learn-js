@@ -1,9 +1,9 @@
 import { View, Image, StyleProp, ViewStyle } from 'react-native';
-import { IMAGES } from '../assets';
+import { STATIC_IMAGES } from '../assets';
 
 export type LearnLogoProps = {
   size: number;
-  image: keyof typeof IMAGES;
+  image: keyof typeof STATIC_IMAGES;
   style?: StyleProp<ViewStyle>;
 };
 
@@ -27,7 +27,7 @@ export function StaticImage({ size, image, style }: LearnLogoProps) {
           height: height
         }}
         resizeMode="contain"
-        source={IMAGES[image]}
+        source={STATIC_IMAGES[image]}
       />
     </View>
   );

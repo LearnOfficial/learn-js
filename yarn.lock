@@ -38,7 +38,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@apollo/client@npm:^3.8.3":
+"@apollo/client@npm:^3.8.3, @apollo/client@npm:^3.8.4":
   version: 3.8.4
   resolution: "@apollo/client@npm:3.8.4"
   dependencies:
@@ -1357,6 +1357,17 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/plugin-transform-object-assign@npm:^7.16.7":
+  version: 7.22.5
+  resolution: "@babel/plugin-transform-object-assign@npm:7.22.5"
+  dependencies:
+    "@babel/helper-plugin-utils": ^7.22.5
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+  checksum: 5b672d72c7b12973e5e5881c3e69ab02474c44add224a9972b9450f859e713b2065fa18b88797b1393ad72cb952c0b14d80fa36960a17d6b558f24ee5cde219c
+  languageName: node
+  linkType: hard
+
 "@babel/plugin-transform-object-rest-spread@npm:^7.22.15":
   version: 7.22.15
   resolution: "@babel/plugin-transform-object-rest-spread@npm:7.22.15"
@@ -1777,7 +1788,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-typescript@npm:^7.13.0":
+"@babel/preset-typescript@npm:^7.13.0, @babel/preset-typescript@npm:^7.16.7":
   version: 7.22.15
   resolution: "@babel/preset-typescript@npm:7.22.15"
   dependencies:
@@ -2733,6 +2744,7 @@ __metadata:
     "@learn/ui": "workspace:*"
     "@react-native/eslint-config": ^0.72.2
     "@react-native/metro-config": ^0.72.11
+    "@shopify/react-native-skia": ^0.1.208
     "@types/react": ^18.0.24
     "@types/react-test-renderer": ^18.0.0
     babel-jest: ^29.2.1
@@ -2742,6 +2754,7 @@ __metadata:
     prettier: ^2.4.1
     react: 18.2.0
     react-native: 0.72.4
+    react-native-reanimated: ^3.5.4
     react-test-renderer: 18.2.0
     typescript: 4.8.4
   languageName: unknown
@@ -2754,9 +2767,10 @@ __metadata:
     "@apollo/client": ^3.8.3
     "@learn/common": "workspace:*"
     "@learn/config": "workspace:*"
+    "@shopify/react-native-skia": ^0.1.208
     "@types/react": ^18.2.21
+    "@types/react-native": ^0.72.2
     "@vitejs/plugin-react": ^4.0.4
-    "@vitejs/plugin-react-swc": ^3.3.2
     graphql: ^16.8.0
     typescript: ^5.2.2
     vite: ^4.4.9
@@ -2764,11 +2778,11 @@ __metadata:
   peerDependencies:
     "@apollo/client": ^3.8.3
     "@learn/common": "workspace:*"
+    "@shopify/react-native-skia": "*"
     graphql: ^16.8.0
     react: ^18.2.0
     react-dom: ^18.2.0
     react-native: "*"
-    react-native-reanimated: "*"
     react-native-web: ^0.19.8
   languageName: unknown
   linkType: soft
@@ -2801,7 +2815,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@learn/webapp@workspace:packages/webapp"
   dependencies:
-    "@apollo/client": ^3.8.3
+    "@apollo/client": ^3.8.4
     "@learn/common": "workspace:*"
     "@learn/config": "workspace:*"
     "@learn/ui": "workspace:*"
@@ -2815,11 +2829,12 @@ __metadata:
     eslint: ^8.45.0
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-refresh: ^0.4.3
-    graphql: ^16.8.0
+    graphql: ^16.8.1
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-native-reanimated: ^3.5.4
     react-native-web: ^0.19.9
-    react-router-dom: ^6.16.0
+    react-router-dom: ^6.14.2
     typescript: ^5.0.2
     vite: ^4.4.5
   languageName: unknown
@@ -7889,7 +7904,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"graphql@npm:^16.8.0":
+"graphql@npm:^16.8.0, graphql@npm:^16.8.1":
   version: 16.8.1
   resolution: "graphql@npm:16.8.1"
   checksum: 8d304b7b6f708c8c5cc164b06e92467dfe36aff6d4f2cf31dd19c4c2905a0e7b89edac4b7e225871131fd24e21460836b369de0c06532644d15b461d55b1ccc0
@@ -11830,6 +11845,27 @@ __metadata:
   languageName: node
   linkType: hard
 
+"react-native-reanimated@npm:^3.5.4":
+  version: 3.5.4
+  resolution: "react-native-reanimated@npm:3.5.4"
+  dependencies:
+    "@babel/plugin-transform-object-assign": ^7.16.7
+    "@babel/preset-typescript": ^7.16.7
+    convert-source-map: ^2.0.0
+    invariant: ^2.2.4
+  peerDependencies:
+    "@babel/core": ^7.0.0-0
+    "@babel/plugin-proposal-nullish-coalescing-operator": ^7.0.0-0
+    "@babel/plugin-proposal-optional-chaining": ^7.0.0-0
+    "@babel/plugin-transform-arrow-functions": ^7.0.0-0
+    "@babel/plugin-transform-shorthand-properties": ^7.0.0-0
+    "@babel/plugin-transform-template-literals": ^7.0.0-0
+    react: "*"
+    react-native: "*"
+  checksum: 885449b11324f0399128d665c90e7179a095dfa603dd251e8b1d14df2efe73411acd724562837e114366769e69b8aac2b0a2ffc1f63d2b7dbf1a35024f074604
+  languageName: node
+  linkType: hard
+
 "react-native-web@npm:^0.19.8, react-native-web@npm:^0.19.9":
   version: 0.19.9
   resolution: "react-native-web@npm:0.19.9"
@@ -11923,7 +11959,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-router-dom@npm:^6.16.0":
+"react-router-dom@npm:^6.14.2":
   version: 6.16.0
   resolution: "react-router-dom@npm:6.16.0"
   dependencies:

@@ -1,20 +1,30 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import fs from 'fs';
+import esbuild from 'esbuild';
 
-// https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [react()],
+  plugins: [
+    react(),
+    {
+      name: 'load-js-files-as-jsx',
+      async load(id) {
+        if (!id.match(/node_modules\/(?:react-native-reanimated)\/.*.js$/)) {
+          return;
+        }
+
+        const file = await fs.promises.readFile(id, 'utf-8');
+        return esbuild.transformSync(file, { loader: 'jsx' });
+      }
+    }
+  ],
   define: {
     global: {}
   },
   resolve: {
-    alias: [
-      { find: /^react-native\/(.*)/, replacement: 'react-native-web/$1' },
-      {
-        find: /^react-native$/,
-        replacement: 'react-native-web'
-      }
-    ]
+    alias: {
+      'react-native': 'react-native-web'
+    }
   },
   optimizeDeps: {
     esbuildOptions: {
