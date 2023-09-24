@@ -4,7 +4,8 @@
   "type": "module",
   "license": "GPL-3.0-or-later",
   "scripts": {
-    "build": "tsc"
+    "build": "tsc && yarn copyfiles -u 1 src/**/*.gql dist",
+    "dev": "nodemon"
   },
   "types": "./dist/index.d.ts",
   "exports": {
@@ -37,6 +38,7 @@
   },
   "dependencies": {
     "copyfiles": "^2.4.1",
-    "dotenv": "^16.3.1"
+    "dotenv": "^16.3.1",
+    "nodemon": "^3.0.1"
   }
 }

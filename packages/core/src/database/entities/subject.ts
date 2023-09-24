@@ -36,6 +36,10 @@ export class Subject implements ISubject {
 
   @Column()
   description: string;
+
+  @Column()
+  color: string;
+
   constructor(subjectCreateInput?: ISubjectCreateInput) {
     if (subjectCreateInput) {
       Object.assign(this, subjectCreateInput);

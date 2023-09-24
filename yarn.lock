@@ -2672,6 +2672,7 @@ __metadata:
     "@types/node": ^20.6.0
     copyfiles: ^2.4.1
     dotenv: ^16.3.1
+    nodemon: ^3.0.1
     typescript: ^5.2.2
   languageName: unknown
   linkType: soft

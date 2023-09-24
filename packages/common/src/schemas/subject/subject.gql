@@ -2,6 +2,7 @@ type ISubject {
   id: Int
   title: String
   description: String
+  color: String
   notes: [INote]!
   tasks: [ITask]!
 }
@@ -9,4 +10,5 @@ type ISubject {
 input ISubjectCreateInput {
   title: String!
   description: String!
+  color: String!
 }
