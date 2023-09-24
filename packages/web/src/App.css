@@ -3,6 +3,10 @@
   src: url('/assets/fonts/lexend/lexend-variale-wght.ttf');
 }
 
+body {
+  background: white;
+}
+
 #root {
   background: linear-gradient(
     174deg,

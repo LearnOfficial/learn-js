@@ -2806,6 +2806,7 @@ __metadata:
     eslint-plugin-react-refresh: ^0.4.3
     react: ^18.2.0
     react-dom: ^18.2.0
+    react-native: ^0.72.4
     react-native-web: ^0.19.8
     typescript: ^5.0.2
     vite: ^4.4.5
@@ -11886,7 +11887,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"react-native@npm:0.72.4":
+"react-native@npm:0.72.4, react-native@npm:^0.72.4":
   version: 0.72.4
   resolution: "react-native@npm:0.72.4"
   dependencies:
