@@ -2,7 +2,14 @@ import { useRef } from 'react';
 import { ColorValue, View } from 'react-native';
 import { SubjectContainer } from './Subject/SubjectContainer';
 import { SubjectItemsContainer } from './Subject/SubjectItemsContainer';
-import { Button, LearnIconSVG, SVG, useAuth } from '@learn/ui';
+import {
+  Button,
+  LearnIconSVG,
+  House,
+  useAuth,
+  HouseIconSVG,
+  PlusIconSVG
+} from '@learn/ui';
 
 type ISubjectItems = {
   id: string;

@@ -1,5 +1,5 @@
 import { Canvas, Group, Path, fitbox, rect } from '@shopify/react-native-skia';
-import { LearnIconSVGProps } from './LearnIconSVG';
+import { LearnIconSVGProps } from './index';
 
 export default function LearnIconSVG({ props }: { props: LearnIconSVGProps }) {
   const src = rect(0, 0, 200, 272);

@@ -1,4 +1,4 @@
-import { StaticImage } from '@learn/ui';
+import { PlusIconSVG, StaticImage } from '@learn/ui';
 import { MutableRefObject, useRef } from 'react';
 import { Pressable, Text, View } from 'react-native';
 import { SubjectItem } from './SubjectItem';
@@ -53,9 +53,9 @@ export function SubjectItemsContainer({
 
         <Pressable
           style={{
-            padding: 5,
+            padding: 10,
             backgroundColor: 'black',
-            borderRadius: 100,
+            borderRadius: 10,
             justifyContent: 'center',
             alignItems: 'center'
           }}
@@ -68,7 +68,7 @@ export function SubjectItemsContainer({
           }}
         >
           <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-            <StaticImage size={30} image="AddIcon" />
+            <PlusIconSVG size={15} color={'white'} />
           </View>
         </Pressable>
       </View>

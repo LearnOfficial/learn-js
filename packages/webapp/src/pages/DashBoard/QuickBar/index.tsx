@@ -1,4 +1,4 @@
-import { StaticImage } from '@learn/ui';
+import { HouseIconSVG, StaticImage } from '@learn/ui';
 import { View } from 'react-native';
 
 export function QuickBar() {
@@ -8,13 +8,14 @@ export function QuickBar() {
         style={{
           flex: 1,
           backgroundColor: 'black',
-          width: 50,
-          maxHeight: 50,
+          width: 40,
+          maxHeight: 40,
           justifyContent: 'center',
-          borderRadius: 20
+          alignItems: 'center',
+          borderRadius: 10
         }}
       >
-        <StaticImage size={50} image="HouseIcon" />
+        <HouseIconSVG size={24} color={'#EEEEE3'} />
       </View>
       <StaticImage size={90} image="FemaleProfileImage" />
     </>

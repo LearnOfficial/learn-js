@@ -1,5 +1,8 @@
 import {View} from 'react-native';
-import {Button, LearnIconSVG, StaticImage} from '@learn/ui';
+import {LearnIconSVG, HouseIconSVG} from '@learn/ui';
+import {TextInput} from '@learn/ui';
+import {PlusIconSVG} from '@learn/ui';
+import {XIconSVG} from '@learn/ui';
 
 export function App() {
   return (
@@ -9,7 +12,10 @@ export function App() {
         justifyContent: 'center',
         alignItems: 'center',
       }}>
-      <LearnIconSVG size={200} pageColor="black" lineColor={'white'} />
+      <LearnIconSVG size={60} pageColor="black" lineColor={'white'} />
+      <HouseIconSVG size={48} color={'black'} />
+      <PlusIconSVG size={48} color="black" />
+      <XIconSVG size={30} color="black" />
     </View>
   );
 }
