@@ -14,7 +14,9 @@ export function DashBoard() {
           backgroundColor: '#EEEEE3',
           justifyContent: 'space-between',
           paddingVertical: 20,
-          alignItems: 'center'
+          alignItems: 'center',
+          borderRightColor: 'black',
+          borderRightWidth: 2
         }}
       >
         <QuickBar />
@@ -35,7 +37,8 @@ export function DashBoard() {
         style={{
           flex: 1,
           paddingVertical: 20,
-          paddingHorizontal: 10
+          paddingHorizontal: 10,
+          borderLeftWidth: 2
         }}
       >
         <TaskBar />

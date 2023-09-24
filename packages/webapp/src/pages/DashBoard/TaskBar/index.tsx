@@ -151,6 +151,7 @@ export function TaskBarCalendar() {
           const enabled = currentDate.getDate() - 1 == index;
           if (enabled && !isSetEnabled.current) {
             lastItemIndex.current = index;
+            isSetEnabled.current = true;
             setTimeout(() => {
               // TODO: Refactor this function with the changeCurrentDay function repeat code.
               // @ts-ignore

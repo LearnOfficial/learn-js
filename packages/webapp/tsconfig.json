@@ -6,8 +6,7 @@
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
     "module": "ESNext",
     "moduleResolution": "Node",
-    "jsx": "react-native",
-    "types": ["node"]
+    "jsx": "react-native"
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

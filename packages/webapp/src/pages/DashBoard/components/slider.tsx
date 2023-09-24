@@ -124,8 +124,6 @@ export const Slider = forwardRef<SliderRef, SliderProps>((props, ref) => {
   return (
     <FlatList
       ref={itemsListRef}
-      bounces
-      showsHorizontalScrollIndicator={false}
       onViewableItemsChanged={onViewableItemsChanged.current}
       horizontal
       contentContainerStyle={[props.contentContainerStyle]}

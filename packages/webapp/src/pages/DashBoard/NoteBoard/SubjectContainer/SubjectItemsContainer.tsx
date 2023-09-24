@@ -17,7 +17,8 @@ export function SubjectItemsContainer({
 
   return (
     <>
-      <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}>
+      {/**
+      <View style={{ justifyContent: 'space-between', flexDirection: 'row' }}> 
         <Pressable
           onPress={() => {
             sliderRef.current?.toBeforeItem();
@@ -33,7 +34,8 @@ export function SubjectItemsContainer({
           <Text>Next</Text>
         </Pressable>
       </View>
-      <View style={{ flexDirection: 'row', gap: 10, flexWrap: 'wrap' }}>
+      **/}
+      <View style={{ flex: 1, flexDirection: 'row', gap: 10 }}>
         <Slider
           contentContainerStyle={{
             gap: 20
@@ -51,26 +53,28 @@ export function SubjectItemsContainer({
           )}
         />
 
-        <Pressable
-          style={{
-            padding: 10,
-            backgroundColor: 'black',
-            borderRadius: 10,
-            justifyContent: 'center',
-            alignItems: 'center'
-          }}
-          onPress={() => {
-            if (onAdd) {
-              onAdd();
-              sliderRef.current?.refresh();
-              sliderRef.current?.toFirstItem();
-            }
-          }}
-        >
-          <View style={{ alignItems: 'center', justifyContent: 'center' }}>
-            <PlusIconSVG size={15} color={'white'} />
-          </View>
-        </Pressable>
+        <View>
+          <Pressable
+            style={{
+              padding: 10,
+              backgroundColor: 'black',
+              borderRadius: 10,
+              justifyContent: 'center',
+              alignItems: 'center'
+            }}
+            onPress={() => {
+              if (onAdd) {
+                onAdd();
+                sliderRef.current?.refresh();
+                sliderRef.current?.toFirstItem();
+              }
+            }}
+          >
+            <View style={{ alignItems: 'center', justifyContent: 'center' }}>
+              <PlusIconSVG size={15} color={'white'} />
+            </View>
+          </Pressable>
+        </View>
       </View>
     </>
   );

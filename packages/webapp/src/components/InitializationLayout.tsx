@@ -6,6 +6,7 @@ import { TextProgress } from './TextProgress';
 
 export function InitializationLayout() {
   const outlet = useOutlet();
+  //@ts-ignore
   const { initializationLoader } = useLoaderData();
 
   return (
