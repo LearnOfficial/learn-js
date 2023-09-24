@@ -13,7 +13,7 @@ export function DashBoard() {
           maxWidth: 70,
           backgroundColor: '#EEEEE3',
           justifyContent: 'space-between',
-          paddingVertical: 20,
+          paddingTop: 20,
           alignItems: 'center',
           borderRightColor: 'black',
           borderRightWidth: 2
@@ -36,9 +36,10 @@ export function DashBoard() {
       <View
         style={{
           flex: 1,
-          paddingVertical: 20,
+          paddingTop: 20,
           paddingHorizontal: 10,
-          borderLeftWidth: 2
+          borderLeftWidth: 2,
+          gap: 20
         }}
       >
         <TaskBar />
