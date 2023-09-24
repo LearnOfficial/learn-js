@@ -6,7 +6,7 @@ import { SliderRef } from '../../components/slider';
 export type SubjectItemProps = {
   title: string;
   backgroundColor: ColorValue;
-  sliderRef: RefObject<SliderRef>;
+  sliderRef?: RefObject<SliderRef>;
   index: number;
 };
 
@@ -29,7 +29,7 @@ export function SubjectItem({
         borderRadius: 100
       }}
       onPress={() => {
-        sliderRef.current?.toItemIndex(index);
+        sliderRef?.current?.toItemIndex(index);
         setTimeout(() => {
           doublePressed.current = 0;
         }, 500);
