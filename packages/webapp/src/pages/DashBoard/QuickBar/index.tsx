@@ -1,7 +1,9 @@
 import { HouseIconSVG, StaticImage } from '@learn/ui';
-import { View } from 'react-native';
+import { View, Image } from 'react-native';
 
 export function QuickBar() {
+  const uriUserImageProfile =
+    'https://raw.githubusercontent.com/LearnOfficial/learn/main/packages/ui/public/assets/imgs/female-profile-image.png';
   return (
     <>
       <View
@@ -17,7 +19,26 @@ export function QuickBar() {
       >
         <HouseIconSVG size={24} color={'#EEEEE3'} />
       </View>
-      <StaticImage size={90} image="FemaleProfileImage" />
+      <View
+        style={{
+          borderRadius: 40,
+          backgroundColor: 'blue',
+          width: 40,
+          height: 40,
+          borderColor: 'black',
+          borderWidth: 1
+        }}
+      >
+        <Image
+          source={{
+            uri: uriUserImageProfile
+          }}
+          style={{
+            flex: 1
+          }}
+          resizeMode="contain"
+        />
+      </View>
     </>
   );
 }
