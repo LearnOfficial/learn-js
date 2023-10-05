@@ -4,6 +4,7 @@ type IUser {
   photo: String
   email: String
   subjects: [ISubject]!
+  notes: [INote]!
 }
 
 input IUserLogInInput {

@@ -62,6 +62,11 @@ export interface IQueryResolvers {
       {}: {},
       authContext: IAuthContext
     ) => Promise<ISubject[]>;
+    notes: (
+      parent: ISubject | undefined,
+      {}: {},
+      authContext: IAuthContext
+    ) => Promise<ISubject[]>;
   };
   ISubject: {
     notes: (

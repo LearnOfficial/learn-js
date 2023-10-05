@@ -44,11 +44,24 @@ export class Note implements INote {
   }
 
   async findAllSubjectRelation(subject: ISubject): Promise<INote[]> {
-    return this.repository.find({
+    return await this.repository.find({
       relations: ['subject'],
       where: {
         subject: {
           id: subject.id!
+        }
+      }
+    });
+  }
+
+  async findAll(userId: number): Promise<INote[]> {
+    return await this.repository.find({
+      relations: ['subject'],
+      where: {
+        subject: {
+          user: {
+            id: userId
+          }
         }
       }
     });

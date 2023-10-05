@@ -5,13 +5,28 @@ import { INoteCreateInput } from '@learn/common/schemas/note';
 import { Subject } from '../../database/entities/subject';
 import { Note } from '../../database/entities/note';
 import { ISubject } from '@learn/common/entities/subject';
+import { User } from '../../database/entities/user';
 
 async function notesQuery(
-  parent: ISubject,
+  parent: ISubject | null,
   {}: {},
-  _: IAuthContext
+  authContext: IAuthContext
 ): Promise<INote[]> {
-  const notes = new Note().findAllSubjectRelation(parent);
+  try {
+    await authGuard(authContext);
+  } catch (e) {
+    throw e;
+  }
+
+  const note = new Note();
+  let notes: INote[] = [];
+
+  if (parent instanceof Subject) {
+    notes = await note.findAllSubjectRelation(parent);
+  } else if (parent instanceof User) {
+    notes = await note.findAll(parent.id!);
+  }
+
   return notes;
 }
 

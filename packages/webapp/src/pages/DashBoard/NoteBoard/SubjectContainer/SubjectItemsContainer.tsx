@@ -1,6 +1,6 @@
-import { PlusIconSVG, StaticImage } from '@learn/ui';
+import { PlusIconSVG } from '@learn/ui';
 import { MutableRefObject, useRef } from 'react';
-import { Pressable, Text, View } from 'react-native';
+import { Pressable, View } from 'react-native';
 import { SubjectItem } from './SubjectItem';
 import { Slider, SliderRef } from '../../components/slider';
 
@@ -43,14 +43,16 @@ export function SubjectItemsContainer({
           keyExtractor={(item) => item.id}
           ref={sliderRef}
           data={data}
-          renderItem={({ item, index }) => (
-            <SubjectItem
-              title={item.title}
-              backgroundColor={item.backgroundColor}
-              index={index}
-              sliderRef={sliderRef}
-            />
-          )}
+          renderItem={({ item, index }) => {
+            return (
+              <SubjectItem
+                title={item.title}
+                backgroundColor={item.color}
+                index={index}
+                sliderRef={sliderRef}
+              />
+            );
+          }}
         />
 
         <View>

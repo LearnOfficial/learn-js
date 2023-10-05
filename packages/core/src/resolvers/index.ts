@@ -18,7 +18,8 @@ const resolvers: IQueryResolvers = {
     createNote: createNote
   },
   IUser: {
-    subjects: subjectsQuery
+    subjects: subjectsQuery,
+    notes: notesQuery
   },
   ISubject: {
     notes: notesQuery,

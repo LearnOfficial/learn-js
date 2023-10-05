@@ -1,6 +1,6 @@
 type INote {
   id: Int
-  idSubject: Int
+  subject: ISubject!
   title: String
   description: String
   path: String
