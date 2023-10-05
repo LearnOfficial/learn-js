@@ -1,5 +1,5 @@
 import { View, Image, StyleProp, ViewStyle } from 'react-native';
-import { STATIC_IMAGES } from '../assets';
+import { STATIC_IMAGES } from '../../assets';
 
 export type LearnLogoProps = {
   size: number;
