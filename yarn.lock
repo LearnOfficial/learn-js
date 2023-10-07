@@ -2755,6 +2755,7 @@ __metadata:
     prettier: ^2.4.1
     react: 18.2.0
     react-native: 0.72.4
+    react-native-mmkv: ^2.10.2
     react-native-navigation: ^7.37.0-hotfix.1
     react-native-reanimated: ^3.5.4
     react-test-renderer: 18.2.0
@@ -11853,6 +11854,16 @@ __metadata:
   version: 2.0.0
   resolution: "react-lifecycles-compat@npm:2.0.0"
   checksum: ace0e1edfa1a544a67a354084c2dc64556e37695c2ad10118ec3e09c491dfe68c5f9332cbcb4963b0dd7c38d22f094ebe700e7d816108e0a28627a4a5e693ba3
+  languageName: node
+  linkType: hard
+
+"react-native-mmkv@npm:^2.10.2":
+  version: 2.10.2
+  resolution: "react-native-mmkv@npm:2.10.2"
+  peerDependencies:
+    react: "*"
+    react-native: ">=0.71.0"
+  checksum: ba1759c6898293db9db2ab1b9bb239840f4902d5a8f53672e02eeb23a81e15cb7f6b32d716bc46747868d8c241d3daad6b15af60a5d5cc7716af1d2c1597c17e
   languageName: node
   linkType: hard
 
