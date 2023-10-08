@@ -74,6 +74,42 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@apollo/client@npm:^3.8.5":
+  version: 3.8.5
+  resolution: "@apollo/client@npm:3.8.5"
+  dependencies:
+    "@graphql-typed-document-node/core": ^3.1.1
+    "@wry/context": ^0.7.3
+    "@wry/equality": ^0.5.6
+    "@wry/trie": ^0.4.3
+    graphql-tag: ^2.12.6
+    hoist-non-react-statics: ^3.3.2
+    optimism: ^0.17.5
+    prop-types: ^15.7.2
+    response-iterator: ^0.2.6
+    symbol-observable: ^4.0.0
+    ts-invariant: ^0.10.3
+    tslib: ^2.3.0
+    zen-observable-ts: ^1.2.5
+  peerDependencies:
+    graphql: ^14.0.0 || ^15.0.0 || ^16.0.0
+    graphql-ws: ^5.5.5
+    react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
+    subscriptions-transport-ws: ^0.9.0 || ^0.11.0
+  peerDependenciesMeta:
+    graphql-ws:
+      optional: true
+    react:
+      optional: true
+    react-dom:
+      optional: true
+    subscriptions-transport-ws:
+      optional: true
+  checksum: 242db8340d5f04ff8f2c9ad6a0dc6ab6d596fb5c763865b0d392f6e5771d55de28faa981dcadaea80ee8b21d4ff40bfa51152a10bcae4158ecf035e47b0d17c4
+  languageName: node
+  linkType: hard
+
 "@apollo/protobufjs@npm:1.2.7":
   version: 1.2.7
   resolution: "@apollo/protobufjs@npm:1.2.7"
@@ -2738,6 +2774,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@learn/mobile@workspace:packages/mobile"
   dependencies:
+    "@apollo/client": ^3.8.5
     "@babel/core": ^7.20.0
     "@babel/preset-env": ^7.20.0
     "@babel/runtime": ^7.20.0
@@ -2750,6 +2787,7 @@ __metadata:
     "@types/react-test-renderer": ^18.0.0
     babel-jest: ^29.2.1
     eslint: ^8.19.0
+    graphql: ^16.8.1
     jest: ^29.2.1
     metro-react-native-babel-preset: 0.76.8
     prettier: ^2.4.1

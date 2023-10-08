@@ -1,4 +1,4 @@
-import {AuthProvider} from '@learn/ui';
+import {ApolloClient, AuthProvider} from '@learn/ui';
 import {ReactNode} from 'react';
 import {AdapterStorage} from '../adapter/AdapterStorage';
 import {authProviderAdapter} from '../adapter/authProviderAdapter';
@@ -11,8 +11,10 @@ export function GlobalContextLayout({children}: AuthLayoutProps) {
   const token = AdapterStorage.getItem('token');
 
   return (
-    <AuthProvider adapter={authProviderAdapter} token={token}>
-      {children}
-    </AuthProvider>
+    <ApolloClient>
+      <AuthProvider adapter={authProviderAdapter} token={token}>
+        {children}
+      </AuthProvider>
+    </ApolloClient>
   );
 }

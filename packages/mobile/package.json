@@ -10,8 +10,10 @@
     "test": "jest"
   },
   "dependencies": {
+    "@apollo/client": "^3.8.5",
     "@learn/ui": "workspace:*",
     "@shopify/react-native-skia": "^0.1.208",
+    "graphql": "^16.8.1",
     "react": "18.2.0",
     "react-native": "0.72.4",
     "react-native-mmkv": "^2.10.2",

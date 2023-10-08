@@ -6,7 +6,7 @@ export function setAuthStackNavigation() {
       stack: {
         id: 'group.auth',
         options: {
-          statusBar: {
+          topBar: {
             visible: false,
           },
         },
