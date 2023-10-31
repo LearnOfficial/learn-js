@@ -1,5 +1,16 @@
 {
   "home": {
     "greetingMessage": "Bienvenido a Learn"
+  },
+  "onboarding": {
+    "subjects": {
+      "title": "Temas"
+    },
+    "notes": {
+      "title": "Notas"
+    },
+    "tasks": {
+      "title": "Tareas"
+    }
   }
 }
