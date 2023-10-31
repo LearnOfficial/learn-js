@@ -1,15 +1,23 @@
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { NavigationContainer } from '@react-navigation/native';
 import { AuthNavigation } from './screen/auth/navigation';
 import { HomeNavigation } from './screen/home/navigation';
 import { useState } from 'react';
 import { i18n } from './i18n';
-import { getLocales } from 'expo-localization';
+import { Provider, useSelector } from 'react-redux';
+import appStore from './store';
 
 export function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
+  return (
+    <Provider store={appStore}>
+      <AppLoader />
+    </Provider>
+  );
+}
 
-  i18n.locale = getLocales()[0].languageCode;
+export function AppLoader() {
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
+  const locale = useSelector((state) => state.locale);
+  i18n.locale = locale;
 
   let Navigation: any = HomeNavigation;
 
