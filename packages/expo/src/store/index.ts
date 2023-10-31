@@ -1,9 +1,11 @@
 import { combineReducers, configureStore } from '@reduxjs/toolkit';
-import { settingSliceReducer } from './reducers/settings';
+import { settingsSliceReducer } from './reducers/settings';
+import { statusSliceReducer } from './reducers/status';
 
 const appStore = configureStore({
   reducer: combineReducers({
-    settingSliceReducer
+    settingsSliceReducer,
+    statusSliceReducer
   })
 });
 

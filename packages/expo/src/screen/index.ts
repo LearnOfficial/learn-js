@@ -3,8 +3,14 @@ export const SCREENS = {
     ROOT: 'home'
   },
   AUTH: {
-    ROOT: 'LogIn',
-    LOG_IN: 'LogIn',
-    SIGN_UP: 'SignUp'
+    ROOT: 'logIn',
+    LOG_IN: 'logIn',
+    SIGN_UP: 'signUp'
+  },
+  ONBOARDING: {
+    ROOT: 'onboardingSubjects',
+    SUBJECTS: 'onboardingSubjects',
+    NOTES: 'onboardingNotes',
+    TASKS: 'onboardingTasks'
   }
 };

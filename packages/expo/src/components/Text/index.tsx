@@ -10,7 +10,7 @@ export type Text = {
 };
 
 export function Text({ children, t, style }: Text) {
-  const locale = useSelector((state) => state.settingSliceReducer.locale);
+  const locale = useSelector((state) => state.settingsSliceReducer.locale);
 
   if (t) {
     return <RNText style={[styles.lexend, style]}>{i18n.t(t)}</RNText>;

@@ -7,7 +7,8 @@ import { Provider, useSelector } from 'react-redux';
 import appStore from './store';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { OnboardingNavigation } from './screen/onboarding/navigation';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -36,14 +37,18 @@ export function App() {
 }
 
 export function AppLoader() {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(true);
-  const locale = useSelector((state) => state.settingSliceReducer.locale);
-  i18n.locale = locale;
+  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const store = useSelector((state) => state);
+  i18n.locale = store.settingsSliceReducer.locale;
 
   let Navigation: any = HomeNavigation;
 
   if (!isAuthenticated) {
-    Navigation = AuthNavigation;
+    if (!store.statusSliceReducer.onboardingCompleted) {
+      Navigation = OnboardingNavigation;
+    } else {
+      Navigation = AuthNavigation;
+    }
   }
 
   return (

@@ -18,4 +18,4 @@ const settingsSlice = createSlice({
 });
 
 export const { setLocale } = settingsSlice.actions;
-export const settingSliceReducer = settingsSlice.reducer;
+export const settingsSliceReducer = settingsSlice.reducer;
