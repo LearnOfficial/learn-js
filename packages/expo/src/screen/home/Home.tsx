@@ -1,9 +1,10 @@
 import { Text, View } from 'react-native';
+import { i18n } from '../../i18n';
 
 export function Home() {
   return (
     <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text>Learn v0.0.1</Text>
+      <Text>{i18n.t('home.greetingMessage')}</Text>
     </View>
   );
 }
