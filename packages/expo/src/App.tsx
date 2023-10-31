@@ -1,16 +1,37 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { AuthNavigation } from './screen/auth/navigation';
 import { HomeNavigation } from './screen/home/navigation';
-import { useState } from 'react';
+import { useCallback, useState } from 'react';
 import { i18n } from './i18n';
 import { Provider, useSelector } from 'react-redux';
 import appStore from './store';
+import { useFonts } from 'expo-font';
+import * as SplashScreen from 'expo-splash-screen';
+import { Text, View } from 'react-native';
+
+SplashScreen.preventAutoHideAsync();
 
 export function App() {
+  const [fontsLoaded] = useFonts({
+    Lexend: require('../assets/Lexend.ttf')
+  });
+
+  const onLayoutRootView = useCallback(async () => {
+    if (fontsLoaded) {
+      await SplashScreen.hideAsync();
+    }
+  }, [fontsLoaded]);
+
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
-    <Provider store={appStore}>
-      <AppLoader />
-    </Provider>
+    <View style={{ flex: 1 }} onLayout={onLayoutRootView}>
+      <Provider store={appStore}>
+        <AppLoader />
+      </Provider>
+    </View>
   );
 }
 

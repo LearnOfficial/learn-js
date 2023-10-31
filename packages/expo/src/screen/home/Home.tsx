@@ -1,8 +1,9 @@
-import { Button, Text, View } from 'react-native';
+import { Button, View } from 'react-native';
 import { setLocale } from '../../store/reducers/settings';
 import { useDispatch } from 'react-redux';
 import { countryFlagEmoji } from '../../utils/countryFlagEmoji';
 import { i18n } from '../../i18n';
+import { Text } from '../../components/Text';
 
 export function Home() {
   const dispatch = useDispatch();
@@ -15,7 +16,7 @@ export function Home() {
         gap: 10
       }}
     >
-      <Text>{i18n.t('home.greetingMessage')}</Text>
+      <Text t="home.greetingMessage" />
       <View style={{ flexDirection: 'row', gap: 20 }}>
         <Button
           title={`en ${countryFlagEmoji('us')}`}

@@ -3405,7 +3405,9 @@ __metadata:
     "@types/react": ~18.2.14
     "@types/react-native": ^0.72.5
     expo: ^49.0.16
+    expo-font: ~11.4.0
     expo-localization: ~14.3.0
+    expo-splash-screen: ~0.20.5
     expo-status-bar: ~1.6.0
     i18n-js: ^4.3.2
     react: 18.2.0
@@ -9723,6 +9725,17 @@ __metadata:
   bin:
     expo-pwa: build/cli.js
   checksum: d9fd7bd6d875342caf7eb4a0b893928301b507a4d26830722c56f96e2a973be852bc8ec77a277dde8bc166e95b7c09c58e3014fb8849ba125289f55bd01e39f8
+  languageName: node
+  linkType: hard
+
+"expo-splash-screen@npm:~0.20.5":
+  version: 0.20.5
+  resolution: "expo-splash-screen@npm:0.20.5"
+  dependencies:
+    "@expo/prebuild-config": 6.2.6
+  peerDependencies:
+    expo: "*"
+  checksum: c4b0db3d0e8ab755a9f4afb1f20824229fa84ea2410528e4316a62e676e08f990157c9edd4af0978f79183d6b47cf3d4843b86f76c084274a40e07adfd697889
   languageName: node
   linkType: hard
 
