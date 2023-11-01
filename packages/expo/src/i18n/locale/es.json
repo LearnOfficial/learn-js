@@ -5,6 +5,10 @@
       "subject": {
         "title": "Temas",
         "description": "Metas que desea alcanzar."
+      },
+      "note": {
+        "title": "Notas",
+        "description": "Crea notas basadas en temas."
       }
     }
   },

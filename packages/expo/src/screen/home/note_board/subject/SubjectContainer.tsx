@@ -4,6 +4,7 @@ import { FlashList } from '@shopify/flash-list';
 import { TextEditable } from '../../../../components/TextEditable';
 import { useState } from 'react';
 import AddIcon from '../../../../static/icons/AddIcon';
+import { FlatList } from 'react-native-gesture-handler';
 
 export function SubjectContainer() {
   const [subjects, setSubjects] = useState([
@@ -46,10 +47,9 @@ export function SubjectContainer() {
         </View>
       </View>
 
-      <FlashList
+      <FlatList
         data={subjects}
         ItemSeparatorComponent={() => <View style={{ width: 10 }}></View>}
-        estimatedItemSize={subjects.length}
         horizontal
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => {

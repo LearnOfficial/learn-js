@@ -5,6 +5,10 @@
       "subject": {
         "title": "Subjects",
         "description": "Goals you want to reach."
+      },
+      "note": {
+        "title": "Notes",
+        "description": "Create notes based on subjects."
       }
     }
   },

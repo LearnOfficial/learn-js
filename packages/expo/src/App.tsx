@@ -47,7 +47,7 @@ export function AppLoader() {
     (state) => state.statusSliceReducer.onboardingCompleted
   );
 
-  i18n.locale = 'es';
+  i18n.locale = locale;
 
   let Navigation: any = HomeNavigation;
 
