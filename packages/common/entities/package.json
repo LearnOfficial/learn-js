@@ -1,5 +1,5 @@
 {
-  "name": "entities",
+  "name": "@learn/common/entities",
   "version": "1.0.0",
   "main": "./src/entities/index.ts",
   "type": "./src/entities/index.ts",
