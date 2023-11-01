@@ -7,8 +7,11 @@ import { Link } from '../../../components/Link';
 import { CheckBox } from '../../../components/CheckBox';
 import { SCREENS } from '../..';
 import LeftArrowIcon from '../../../static/icons/LeftArrowIcon';
+import { useDispatch } from 'react-redux';
+import { setToken } from '../../../store/reducers/account';
 
 export function LogIn({ route, navigation }) {
+  const dispatch = useDispatch();
   return (
     <View
       style={{
@@ -52,6 +55,9 @@ export function LogIn({ route, navigation }) {
           style={{ backgroundColor: '#1E1E1E' }}
           styleText={{ color: '#F9FBF4' }}
           t="auth.logIn.title"
+          onPress={() => {
+            dispatch(setToken('token'));
+          }}
         />
 
         <Link

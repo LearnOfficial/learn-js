@@ -39,12 +39,15 @@ export function App() {
 }
 
 export function AppLoader() {
-  const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
+  const token = useSelector((state) => state.accountSliceReducer.token);
+  const isAuthenticated = token !== '';
+
   const locale = useSelector((state) => state.settingsSliceReducer.locale);
   const isOnboardingCompleted = useSelector(
     (state) => state.statusSliceReducer.onboardingCompleted
   );
-  i18n.locale = 'es';
+
+  i18n.locale = locale;
 
   let Navigation: any = HomeNavigation;
 
