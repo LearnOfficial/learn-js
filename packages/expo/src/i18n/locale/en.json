@@ -46,5 +46,10 @@
       "description": "The tasks are remainder based on subjects that permits remember the notes you need to take to reach your subject goal."
     },
     "completedButton": "Start"
+  },
+  "navigation": {
+    "home": "Home",
+    "settings": "Settings",
+    "tasks": "Tasks"
   }
 }

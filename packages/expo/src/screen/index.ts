@@ -1,17 +1,20 @@
 export const SCREENS = {
   HOME: {
-    ROOT: 'home'
+    ROOT: 'home-home-root',
+    HOME: 'home-home',
+    TASKS: 'home-tasks',
+    SETTINGS: 'home-settings'
   },
   AUTH: {
-    ROOT: 'welcome',
-    WELCOME: 'welcome',
-    LOG_IN: 'logIn',
-    SIGN_UP: 'signUp'
+    ROOT: 'auth-welcome',
+    WELCOME: 'auth-welcome',
+    LOG_IN: 'auth-logIn',
+    SIGN_UP: 'auth-signUp'
   },
   ONBOARDING: {
-    ROOT: 'onboardingSubjects',
-    SUBJECTS: 'onboardingSubjects',
-    NOTES: 'onboardingNotes',
-    TASKS: 'onboardingTasks'
+    ROOT: 'onboarding-subjects',
+    SUBJECTS: 'onboarding-subjects',
+    NOTES: 'onboarding-notes',
+    TASKS: 'onboarding-tasks'
   }
 };
