@@ -1,5 +1,4 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import { Home } from './Home';
 import { SCREENS } from '..';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Settings } from './settings/Settings';
@@ -9,6 +8,7 @@ import BulletListIcon from '../../static/icons/BulletListIcon';
 import { View } from 'react-native';
 import { i18n } from '../../i18n';
 import { HomeHeader } from './header';
+import { NoteBoard } from './note_board/NoteBoard';
 
 const HomeDrawerNavigation = createDrawerNavigator();
 const HomeBottomTabNavigator = createBottomTabNavigator();
@@ -19,7 +19,7 @@ export function HomeBottomTabNavigation() {
       screenOptions={({ route }) => ({
         tabBarIcon: ({ focused, color, size }) => {
           switch (route.name) {
-            case SCREENS.HOME.HOME:
+            case SCREENS.HOME.NOTE_BOARD:
               return (
                 <View
                   style={{
@@ -62,8 +62,8 @@ export function HomeBottomTabNavigation() {
       })}
     >
       <HomeBottomTabNavigator.Screen
-        name={SCREENS.HOME.HOME}
-        component={Home}
+        name={SCREENS.HOME.NOTE_BOARD}
+        component={NoteBoard}
         options={{ title: i18n.t('navigation.home') }}
       />
       <HomeBottomTabNavigator.Screen

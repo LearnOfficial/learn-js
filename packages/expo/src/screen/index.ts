@@ -1,7 +1,7 @@
 export const SCREENS = {
   HOME: {
     ROOT: 'home-home-root',
-    HOME: 'home-home',
+    NOTE_BOARD: 'home-note-board',
     TASKS: 'home-tasks',
     SETTINGS: 'home-settings'
   },

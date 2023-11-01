@@ -28,7 +28,7 @@ export function HomeHeader({ navigation }) {
         />
         <View>
           <Text>Antonia Casas</Text>
-          <Text style={{ fontSize: 12 }}>Student</Text>
+          <Text style={{ fontSize: 12 }} t="status.happy" />
         </View>
       </View>
       <TouchableOpacity
