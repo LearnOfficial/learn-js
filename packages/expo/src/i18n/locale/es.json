@@ -2,6 +2,18 @@
   "home": {
     "greetingMessage": "Bienvenido a Learn"
   },
+  "auth": {
+    "welcome": {
+      "title": "Bienvenido a Learn",
+      "description": "Learn es un entorno de aprendizaje virtual libre y de código abierto enfocado en el autoestudio creado para ti."
+    },
+    "logIn": {
+      "title": "Inicia sesión"
+    },
+    "signUp": {
+      "title": "Registrate"
+    }
+  },
   "onboarding": {
     "subjects": {
       "title": "Temas",

@@ -2,6 +2,18 @@
   "home": {
     "greetingMessage": "Welcome to Learn"
   },
+  "auth": {
+    "welcome": {
+      "title": "Welcome to Learn",
+      "description": "Learn is a free and open source virtual learning environment focused on self-study created for you."
+    },
+    "logIn": {
+      "title": "Log in"
+    },
+    "signUp": {
+      "title": "Register"
+    }
+  },
   "onboarding": {
     "subjects": {
       "title": "Subjects",

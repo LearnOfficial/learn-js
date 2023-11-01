@@ -3,7 +3,8 @@ export const SCREENS = {
     ROOT: 'home'
   },
   AUTH: {
-    ROOT: 'logIn',
+    ROOT: 'welcome',
+    WELCOME: 'welcome',
     LOG_IN: 'logIn',
     SIGN_UP: 'signUp'
   },
