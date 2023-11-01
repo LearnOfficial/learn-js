@@ -38,13 +38,16 @@ export function App() {
 
 export function AppLoader() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
-  const store = useSelector((state) => state);
-  i18n.locale = store.settingsSliceReducer.locale;
+  const locale = useSelector((state) => state.settingsSliceReducer.locale);
+  const isOnboardingCompleted = useSelector(
+    (state) => state.statusSliceReducer.onboardingCompleted
+  );
+  i18n.locale = locale;
 
   let Navigation: any = HomeNavigation;
 
   if (!isAuthenticated) {
-    if (!store.statusSliceReducer.onboardingCompleted) {
+    if (!isOnboardingCompleted) {
       Navigation = OnboardingNavigation;
     } else {
       Navigation = AuthNavigation;
