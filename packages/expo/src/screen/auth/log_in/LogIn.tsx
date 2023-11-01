@@ -25,7 +25,7 @@ export function LogIn({ route, navigation }) {
       <View>
         <Link
           onPress={() => {
-            navigation.pop();
+            navigation.navigate(SCREENS.AUTH.ROOT);
           }}
         >
           <LeftArrowIcon width={22} height={20} color="#1E1E1E" />
@@ -41,11 +41,13 @@ export function LogIn({ route, navigation }) {
       </View>
 
       <View style={{ gap: 20 }}>
-        <TextInput placeholderT="auth.logIn.username" />
-        <SecureTextInput placeholderT="auth.logIn.password" />
+        <TextInput placeholderT="auth.username" />
+        <SecureTextInput placeholderT="auth.password" />
 
         <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
-          <CheckBox t="auth.logIn.rememberMe" />
+          <CheckBox>
+            <Text t="auth.logIn.rememberMe" />
+          </CheckBox>
           <Link>
             <Text t="auth.logIn.forgotPassword" />
           </Link>

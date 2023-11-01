@@ -1,13 +1,14 @@
-import { TouchableOpacity, View } from 'react-native';
-import { Text } from '../Text';
-import { useEffect, useState } from 'react';
+import { TouchableOpacity, View, ViewStyle } from 'react-native';
+import { ReactNode, useEffect, useState } from 'react';
+import { StyleProp } from 'react-native';
 
 export type CheckBoxProps = {
-  t: string;
+  children: ReactNode;
   onChange?: (isEnable: boolean) => void;
+  style?: StyleProp<ViewStyle>;
 };
 
-export function CheckBox({ t, onChange }: CheckBoxProps) {
+export function CheckBox({ children, onChange, style }: CheckBoxProps) {
   const [enable, setEnable] = useState<boolean>(false);
 
   useEffect(() => {
@@ -19,7 +20,13 @@ export function CheckBox({ t, onChange }: CheckBoxProps) {
       onPress={() => {
         setEnable(!enable);
       }}
-      style={{ flexDirection: 'row', gap: 10 }}
+      style={{
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+        gap: 10
+      }}
     >
       <View
         style={{
@@ -38,7 +45,8 @@ export function CheckBox({ t, onChange }: CheckBoxProps) {
           }}
         ></View>
       </View>
-      <Text t={t} />
+
+      <View style={[{ flex: 1 }, style]}>{children}</View>
     </TouchableOpacity>
   );
 }

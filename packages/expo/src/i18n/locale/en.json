@@ -7,10 +7,12 @@
       "title": "Welcome to Learn",
       "description": "Learn is a free and open source virtual learning environment focused on self-study created for you."
     },
+    "password": "Password",
+    "username": "Username",
+    "email": "Email",
+    "retryPassword": "Retry password",
     "logIn": {
       "title": "Log in",
-      "username": "Username",
-      "password": "Password",
       "header": {
         "title": "Welcome Back!",
         "description": "We missed you..."
@@ -20,7 +22,14 @@
       "haveAccount": "Don't have an account?"
     },
     "signUp": {
-      "title": "Register"
+      "title": "Register",
+      "header": {
+        "title": "Become a member",
+        "description": "We create a dedicated environment for you..."
+      },
+      "termsOfServiceStatement": "Creating an account means you’re okay with our",
+      "termOfService": "Terms of services.",
+      "areYouMember": "I'm already a member?"
     }
   },
   "onboarding": {

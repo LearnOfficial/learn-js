@@ -3,6 +3,7 @@ import { setLocale } from '../../store/reducers/settings';
 import { useDispatch } from 'react-redux';
 import { countryFlagEmoji } from '../../utils/countryFlagEmoji';
 import { Text } from '../../components/Text';
+import { setToken } from '../../store/reducers/account';
 
 export function Home() {
   const dispatch = useDispatch();
@@ -27,6 +28,14 @@ export function Home() {
           title={`es ${countryFlagEmoji('es')}`}
           onPress={() => {
             dispatch(setLocale('es'));
+          }}
+        />
+      </View>
+      <View>
+        <Button
+          title="Log out"
+          onPress={() => {
+            dispatch(setToken(''));
           }}
         />
       </View>

@@ -7,10 +7,12 @@
       "title": "Bienvenido a Learn",
       "description": "Learn es un entorno de aprendizaje virtual libre y de código abierto enfocado en el autoestudio creado para ti."
     },
+    "username": "Usuario",
+    "password": "Contraseña",
+    "email": "Correo electronico",
+    "retryPassword": "Repetir contraseña",
     "logIn": {
       "title": "Inicia sesión",
-      "username": "Usuario",
-      "password": "Contraseña",
       "header": {
         "title": "Bienvenido!",
         "description": "Te extrañamos..."
@@ -20,7 +22,14 @@
       "haveAccount": "No tienes una cuenta?"
     },
     "signUp": {
-      "title": "Registrate"
+      "title": "Registrate",
+      "header": {
+        "title": "Conviértete en miembro",
+        "description": "Estamos creando un ambiente dedicado para ti..."
+      },
+      "termsOfServiceStatement": "Crear una cuenta significa que estás de acuerdo con nuestros",
+      "termOfService": "Término de servicios",
+      "areYouMember": "Ya soy miembro?"
     }
   },
   "onboarding": {
