@@ -9,6 +9,7 @@ import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { View } from 'react-native';
 import { OnboardingNavigation } from './screen/onboarding/navigation';
+import { StatusBar } from 'expo-status-bar';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -32,6 +33,7 @@ export function App() {
       <Provider store={appStore}>
         <AppLoader />
       </Provider>
+      <StatusBar />
     </View>
   );
 }
