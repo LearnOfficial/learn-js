@@ -4,10 +4,12 @@
   },
   "onboarding": {
     "subjects": {
-      "title": "Subjects"
+      "title": "Subjects",
+      "description": "Your subjects are the main principle goal to accomplish."
     },
     "notes": {
-      "title": "Notes"
+      "title": "Notes",
+      "description": "Your notes are based on the subjects you before created."
     },
     "tasks": {
       "title": "Tasks"
