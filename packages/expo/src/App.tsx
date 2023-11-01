@@ -39,7 +39,7 @@ export function App() {
 export function AppLoader() {
   const [isAuthenticated, setIsAuthenticated] = useState<boolean>(false);
   const store = useSelector((state) => state);
-  i18n.locale = 'es';
+  i18n.locale = store.settingsSliceReducer.locale;
 
   let Navigation: any = HomeNavigation;
 

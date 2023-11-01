@@ -14,6 +14,7 @@
     "tasks": {
       "title": "Tareas",
       "description": "El resto de las tareas se basan en temas, lo que permite recordar las notas que debe tomar para alcanzar el objetivo de su materia."
-    }
+    },
+    "completedButton": "Comenzar"
   }
 }

@@ -12,7 +12,9 @@
       "description": "Your notes are based on the subjects you before created."
     },
     "tasks": {
-      "title": "Tasks"
-    }
+      "title": "Tasks",
+      "description": "The tasks are remainder based on subjects that permits remember the notes you need to take to reach your subject goal."
+    },
+    "completedButton": "Start"
   }
 }

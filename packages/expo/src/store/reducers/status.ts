@@ -5,7 +5,7 @@ export type StatusStoreState = {
 };
 
 const statusSlice = createSlice({
-  name: 'settings',
+  name: 'status',
   initialState: {
     onboardingCompleted: false
   },
