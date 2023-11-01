@@ -8,7 +8,16 @@
       "description": "Learn is a free and open source virtual learning environment focused on self-study created for you."
     },
     "logIn": {
-      "title": "Log in"
+      "title": "Log in",
+      "username": "Username",
+      "password": "Password",
+      "header": {
+        "title": "Welcome Back!",
+        "description": "We missed you..."
+      },
+      "forgotPassword": "Forgot password?",
+      "rememberMe": "Remember me",
+      "haveAccount": "Don't have an account?"
     },
     "signUp": {
       "title": "Register"

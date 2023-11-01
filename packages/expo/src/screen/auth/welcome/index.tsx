@@ -6,7 +6,7 @@ import { SCREENS } from '../..';
 
 export function Welcome({ route, navigation }) {
   return (
-    <View style={{ flex: 1, backgroundColor: '#F9FBF4', padding: 40 }}>
+    <View style={{ flex: 1, backgroundColor: '#F9FBF4', padding: 20 }}>
       <View
         style={{ flex: 2, justifyContent: 'flex-end', alignItems: 'center' }}
       >

@@ -8,7 +8,16 @@
       "description": "Learn es un entorno de aprendizaje virtual libre y de código abierto enfocado en el autoestudio creado para ti."
     },
     "logIn": {
-      "title": "Inicia sesión"
+      "title": "Inicia sesión",
+      "username": "Usuario",
+      "password": "Contraseña",
+      "header": {
+        "title": "Bienvenido!",
+        "description": "Te extrañamos..."
+      },
+      "forgotPassword": "Olvidaste tu contraseña?",
+      "rememberMe": "Recuérdame",
+      "haveAccount": "No tienes una cuenta?"
     },
     "signUp": {
       "title": "Registrate"

@@ -8,11 +8,13 @@ const AuthStackNavigation = createNativeStackNavigator();
 
 export function AuthNavigation() {
   return (
-    <AuthStackNavigation.Navigator initialRouteName={SCREENS.AUTH.ROOT}>
+    <AuthStackNavigation.Navigator
+      initialRouteName={SCREENS.AUTH.ROOT}
+      screenOptions={{
+        headerShown: false
+      }}
+    >
       <AuthStackNavigation.Screen
-        options={{
-          headerShown: false
-        }}
         name={SCREENS.AUTH.WELCOME}
         component={Welcome}
       />
