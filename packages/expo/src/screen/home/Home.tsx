@@ -2,7 +2,6 @@ import { Button, View } from 'react-native';
 import { setLocale } from '../../store/reducers/settings';
 import { useDispatch } from 'react-redux';
 import { countryFlagEmoji } from '../../utils/countryFlagEmoji';
-import { i18n } from '../../i18n';
 import { Text } from '../../components/Text';
 
 export function Home() {
