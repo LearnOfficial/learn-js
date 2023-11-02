@@ -3,12 +3,12 @@ import { SCREENS } from '..';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Settings } from './settings/Settings';
 import HouseIcon from '../../static/icons/HouseIcon';
-import { Tasks } from './tasks/Tasks';
 import BulletListIcon from '../../static/icons/BulletListIcon';
 import { View } from 'react-native';
 import { i18n } from '../../i18n';
 import { HomeHeader } from './header';
 import { NoteBoard } from './note_board/NoteBoard';
+import { TaskBoard } from './task_board/TaskBoard';
 
 const HomeDrawerNavigation = createDrawerNavigator();
 const HomeBottomTabNavigator = createBottomTabNavigator();
@@ -56,7 +56,6 @@ export function HomeBottomTabNavigation() {
         header: HomeHeader,
         tabBarStyle: {
           height: 60,
-          justifyContent: 'center',
           backgroundColor: '#EEEEE3'
         }
       })}
@@ -68,7 +67,7 @@ export function HomeBottomTabNavigation() {
       />
       <HomeBottomTabNavigator.Screen
         name={SCREENS.HOME.TASKS}
-        component={Tasks}
+        component={TaskBoard}
         options={{ title: i18n.t('navigation.tasks') }}
       />
     </HomeBottomTabNavigator.Navigator>
