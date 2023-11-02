@@ -8,12 +8,13 @@ import {
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { CheckBox } from '../../../components/CheckBox';
+import { CalendarWeekItem } from './components/CalendarWeekItem';
+import { TaskList } from './task_list/TaskList';
 
 export function TaskBoard() {
   const [curDate, setCurDate] = useState<Date>(new Date());
   const days = getDaysInMonth(curDate.getMonth(), 2023);
   const locale = useSelector((state) => state.settingsSliceReducer.locale);
-
   return (
     <View
       style={{
@@ -39,44 +40,13 @@ export function TaskBoard() {
           horizontal
           ItemSeparatorComponent={() => <View style={{ width: 10 }}></View>}
           showsHorizontalScrollIndicator={false}
-          renderItem={({ item }) => {
-            const isActive = curDate.getDate() === item.getDate();
-            return (
-              <TouchableOpacity
-                onPress={() => {
-                  setCurDate(item);
-                }}
-              >
-                <View
-                  style={{
-                    width: 60,
-                    height: 60,
-                    padding: 10,
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                    borderRadius: 8,
-                    borderWidth: 1,
-                    backgroundColor: isActive ? '#1E1E1E' : '#F9FBF4'
-                  }}
-                >
-                  <Text
-                    style={{
-                      color: isActive ? '#F9FBF4' : '#1E1E1E'
-                    }}
-                  >
-                    {getWeekName(locale, item).slice(0, 3)}
-                  </Text>
-                  <Text
-                    style={{
-                      color: isActive ? '#F9FBF4' : '#1E1E1E'
-                    }}
-                  >
-                    {item.getDate()}
-                  </Text>
-                </View>
-              </TouchableOpacity>
-            );
-          }}
+          renderItem={({ item }) => (
+            <CalendarWeekItem
+              selectedDate={item}
+              setCurDate={setCurDate}
+              curDate={curDate}
+            />
+          )}
         />
       </View>
 
@@ -88,6 +58,7 @@ export function TaskBoard() {
           </CheckBox>
         </View>
       </View>
+      <TaskList date={curDate} />
     </View>
   );
 }
