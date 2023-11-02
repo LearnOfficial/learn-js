@@ -31,7 +31,7 @@ export function Button({ t, title, style, onPress, styleText }: ButtonProps) {
 
   return (
     <TouchableOpacity
-      style={[{ padding: 10, width: '100%' }, style]}
+      style={[{ flex: 1, padding: 10 }, style]}
       onPress={onPress}
     >
       <TextContent />

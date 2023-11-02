@@ -64,5 +64,7 @@
   },
   "status": {
     "happy": "Happy"
-  }
+  },
+  "save": "Save",
+  "cancel": "Cancel"
 }

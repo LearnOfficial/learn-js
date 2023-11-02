@@ -9,9 +9,31 @@ import { i18n } from '../../i18n';
 import { HomeHeader } from './header';
 import { NoteBoard } from './note_board/NoteBoard';
 import { TaskBoard } from './task_board/TaskBoard';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { NoteEditor } from './note_board/note_editor/NoteEditor';
 
 const HomeDrawerNavigation = createDrawerNavigator();
 const HomeBottomTabNavigator = createBottomTabNavigator();
+const HomeStackNavigator = createNativeStackNavigator();
+
+export function HomeStackNavigation() {
+  return (
+    <HomeStackNavigator.Navigator screenOptions={{ headerShown: false }}>
+      <HomeStackNavigator.Group>
+        <HomeStackNavigator.Screen
+          name={SCREENS.HOME.ROOT_TAB}
+          component={HomeBottomTabNavigation}
+        />
+      </HomeStackNavigator.Group>
+      <HomeStackNavigator.Group screenOptions={{ presentation: 'card' }}>
+        <HomeStackNavigator.Screen
+          name={SCREENS.HOME.NOTE_EDITOR}
+          component={NoteEditor}
+        />
+      </HomeStackNavigator.Group>
+    </HomeStackNavigator.Navigator>
+  );
+}
 
 export function HomeBottomTabNavigation() {
   return (
@@ -85,7 +107,7 @@ export function HomeNavigation() {
     >
       <HomeDrawerNavigation.Screen
         name={SCREENS.HOME.ROOT}
-        component={HomeBottomTabNavigation}
+        component={HomeStackNavigation}
         options={{ title: i18n.t('navigation.home') }}
       />
       <HomeBottomTabNavigator.Screen

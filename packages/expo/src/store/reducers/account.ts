@@ -7,7 +7,7 @@ type AccountStoreState = {
 const accountSlice = createSlice({
   name: 'account',
   initialState: {
-    token: ''
+    token: 'a'
   } as AccountStoreState,
   reducers: {
     setToken(state, actions: PayloadAction<string>) {

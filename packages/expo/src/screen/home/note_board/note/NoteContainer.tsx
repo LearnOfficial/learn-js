@@ -1,57 +1,13 @@
 import { TouchableOpacity, View } from 'react-native';
 import { Text } from '../../../../components/Text';
-import { useState } from 'react';
 import AddIcon from '../../../../static/icons/AddIcon';
 import { TextAdjust } from '../../../../components/TextAdjust';
 import { FlatList } from 'react-native-gesture-handler';
+import { SCREENS } from '../../..';
+import { useSelector } from 'react-redux';
 
-export function NoteContanier() {
-  const [notes, setNotes] = useState([
-    {
-      title: 'Thermodynamic',
-      description: 'Research about heat, work, and temperature.',
-      subject: {
-        title: 'Physics',
-        color: '#DACEED'
-      }
-    },
-    {
-      title: 'Threats',
-      description:
-        'Introduction and source code of a simple multi-thread program.',
-      subject: {
-        title: 'C programming language',
-        color: '#CEEDD3'
-      }
-    },
-    {
-      title: 'Integration',
-      description:
-        'Proof of integration and explanation of the 2 integration theorem.',
-      subject: {
-        title: 'Mathematics',
-        color: '#EDCECE'
-      }
-    },
-    {
-      title: 'Threats',
-      description:
-        'Introduction and source code of a simple multi-thread program.',
-      subject: {
-        title: 'C programming language',
-        color: '#CEEDD3'
-      }
-    },
-    {
-      title: 'Integration',
-      description:
-        'Proof of integration and explanation of the 2 integration theorem.',
-      subject: {
-        title: 'Mathematics',
-        color: '#EDCECE'
-      }
-    }
-  ]);
+export function NoteContanier({ navigation }) {
+  const notes = useSelector((state) => state.notesSliceReducer.notes);
 
   return (
     <View style={{ gap: 20 }}>
@@ -86,7 +42,12 @@ export function NoteContanier() {
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => {
           return (
-            <TouchableOpacity style={{ flex: 1 }}>
+            <TouchableOpacity
+              onPress={() => {
+                navigation.navigate(SCREENS.HOME.NOTE_EDITOR, { id: item.id });
+              }}
+              style={{ flex: 1 }}
+            >
               <View
                 style={{
                   flex: 1,

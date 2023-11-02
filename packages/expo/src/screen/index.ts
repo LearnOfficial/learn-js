@@ -1,9 +1,11 @@
 export const SCREENS = {
   HOME: {
-    ROOT: 'home-home-root',
+    ROOT: 'home-root',
+    ROOT_TAB: 'home-root-tab',
     NOTE_BOARD: 'home-note-board',
     TASKS: 'home-tasks',
-    SETTINGS: 'home-settings'
+    SETTINGS: 'home-settings',
+    NOTE_EDITOR: 'home-note-editor'
   },
   AUTH: {
     ROOT: 'auth-welcome',
