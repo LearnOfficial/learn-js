@@ -1,17 +1,10 @@
-import {
-  View,
-  ScrollView,
-  KeyboardAvoidingView,
-  Pressable
-} from 'react-native';
+import { View, ScrollView, KeyboardAvoidingView } from 'react-native';
 import { useDispatch, useSelector } from 'react-redux';
 import { TextEditable } from '../../../../components/TextEditable';
-import { Text } from '../../../../components/Text';
 import { TextAdjust } from '../../../../components/TextAdjust';
 import { Button } from '../../../../components/Button';
 import { TextArea } from '../../../../components/TextArea';
 import { editNote } from '../../../../store/reducers/notes';
-import { useRef } from 'react';
 
 export function NoteEditor({ route, navigation }) {
   const note = useSelector(
@@ -27,7 +20,12 @@ export function NoteEditor({ route, navigation }) {
     >
       <View style={{ position: 'absolute', top: 50, flexDirection: 'row' }}>
         <View style={{ flex: 1 }}></View>
-        <Button t="cancel" />
+        <Button
+          t="cancel"
+          onPress={() => {
+            navigation.pop();
+          }}
+        />
         <Button
           style={{ backgroundColor: '#1E1E1E' }}
           styleText={{ color: '#F9FBF4' }}

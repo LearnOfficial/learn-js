@@ -1,10 +1,4 @@
-import {
-  ColorValue,
-  TextStyle,
-  TouchableOpacity,
-  View,
-  ViewStyle
-} from 'react-native';
+import { TextStyle, TouchableOpacity, ViewStyle } from 'react-native';
 import { Text } from '../Text';
 import { StyleProp } from 'react-native';
 
@@ -30,10 +24,7 @@ export function Button({ t, title, style, onPress, styleText }: ButtonProps) {
   }
 
   return (
-    <TouchableOpacity
-      style={[{ flex: 1, padding: 10 }, style]}
-      onPress={onPress}
-    >
+    <TouchableOpacity style={[{ padding: 10 }, style]} onPress={onPress}>
       <TextContent />
     </TouchableOpacity>
   );

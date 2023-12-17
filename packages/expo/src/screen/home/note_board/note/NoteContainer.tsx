@@ -4,13 +4,15 @@ import AddIcon from '../../../../static/icons/AddIcon';
 import { TextAdjust } from '../../../../components/TextAdjust';
 import { FlatList } from 'react-native-gesture-handler';
 import { SCREENS } from '../../..';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { createNote } from '../../../../store/reducers/notes';
 
 export function NoteContanier({ navigation }) {
   const notes = useSelector((state) => state.notesSliceReducer.notes);
+  const disptach = useDispatch();
 
   return (
-    <View style={{ gap: 20 }}>
+    <View style={{ flex: 1, gap: 20 }}>
       <View style={{ flexDirection: 'row', justifyContent: 'space-between' }}>
         <View style={{ flex: 1 }}>
           <Text
@@ -21,7 +23,19 @@ export function NoteContanier({ navigation }) {
         </View>
         <View style={{ justifyContent: 'center' }}>
           <TouchableOpacity
-            onPress={() => {}}
+            onPress={() => {
+              disptach(
+                createNote({
+                  title: 'Title',
+                  description: 'Write a description',
+                  body: 'Write your notes here',
+                  subject: {
+                    title: 'Physics',
+                    color: '#CEEDD3'
+                  }
+                })
+              );
+            }}
             style={{
               backgroundColor: '#1E1E1E',
               padding: 8,
@@ -36,9 +50,9 @@ export function NoteContanier({ navigation }) {
 
       <FlatList
         data={notes}
+        style={{ flex: 1 }}
         showsVerticalScrollIndicator={false}
         ItemSeparatorComponent={() => <View style={{ height: 20 }}></View>}
-        ListFooterComponent={() => <View style={{ height: 50 }}></View>}
         showsHorizontalScrollIndicator={false}
         renderItem={({ item }) => {
           return (

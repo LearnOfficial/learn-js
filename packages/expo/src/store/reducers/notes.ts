@@ -5,7 +5,7 @@ export type NotesStore = {
 };
 
 export type NotesStorePayload = {
-  id: number;
+  id?: number;
   title: string;
   description: string;
   body: string;
@@ -87,7 +87,7 @@ const notesSlice = createSlice({
       state.notes.push(actions.payload);
     },
     editNote(state, actions: PayloadAction<NotesStorePayload>) {
-      state.notes[actions.payload.id] = actions.payload;
+      state.notes[actions.payload.id!] = actions.payload;
     }
   }
 });
